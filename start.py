@@ -16,4 +16,6 @@ tokenizer = AutoTokenizer.from_pretrained(teacher_name)
 student_cfg = teacher.config.copy()
 student_cfg.num_hidden_layers = 12 
 
-print(student.cfg)
+
+
+print(student_cfg)
