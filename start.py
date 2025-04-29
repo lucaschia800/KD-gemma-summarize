@@ -16,3 +16,12 @@ tokenizer = AutoTokenizer.from_pretrained(teacher_name)
 student_cfg = teacher.config.copy()
 student_cfg.num_hidden_layers = 12 
 
+student = AutoModelForCausalLM.from_config(student_cfg)
+
+student.get_input_embeddings().load_state_dict(
+        teacher.get_input_embeddings().state_dict()
+    )
+
+student.lm_head.load_state_dict(teacher.lm_head.state_dict())
+
+
