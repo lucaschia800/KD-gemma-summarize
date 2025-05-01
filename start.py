@@ -13,7 +13,7 @@ os.environ["HUGGINGFACE_HUB_TOKEN"] = huggingface_token
 login(token=huggingface_token)
 
 
-teacher_name = "mistralai/Mistral-7b-v0.2"
+teacher_name = "mistralai/Mistral-7B-Instruct-v0.3"
 teacher = AutoModelForCausalLM.from_pretrained(
         teacher_name, torch_dtype=torch.float16, device_map="auto",
         token = huggingface_token
