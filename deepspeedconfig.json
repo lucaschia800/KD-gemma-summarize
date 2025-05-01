@@ -1,8 +1,8 @@
 {
-    "train_batch_size": 48,              // total across all GPUs (batch_size_per_gpu * gpus)
+    "train_batch_size": 32,              
     "train_micro_batch_size_per_gpu": 2,  
     "steps_per_print": 50,
-    "gradient_accumulation_steps": 8,     // 2 * 8 = 16 seqs/GPU 16 * 3 = 48 total
+    "gradient_accumulation_steps": 8,     
     "fp16": {
       "enabled": true                     
     },

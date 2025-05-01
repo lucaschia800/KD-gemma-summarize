@@ -1,3 +1,3 @@
-data/gkd_formatted_cnn/*.arrow
+data/cnn_formatted
 data/sci1_formatted
 data/xsum_formatted
