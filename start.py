@@ -4,7 +4,6 @@ from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
 from huggingface_hub import login
 from datasets import load_dataset, concatenate_datasets, load_from_disk
 from trl import SFTTrainer, GKDTrainer, GKDConfig
-from transformers import D
 import copy
 
 
