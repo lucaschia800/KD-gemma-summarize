@@ -5,6 +5,7 @@ from huggingface_hub import login
 from datasets import load_dataset, concatenate_datasets
 from trl import SFTTrainer
 from transformers import TrainingArguments
+import copy
 
 huggingface_token = os.environ.get('HUGGINGFACE_HUB_TOKEN')
 if huggingface_token is None:
@@ -21,7 +22,7 @@ teacher = AutoModelForCausalLM.from_pretrained(
 
 tokenizer = AutoTokenizer.from_pretrained(teacher_name)
 
-student_cfg = teacher.config.copy()
+student_cfg = copy.deepcopy(teacher.config)
 student_cfg.num_hidden_layers = 12 
 
 student = AutoModelForCausalLM.from_config(student_cfg)
