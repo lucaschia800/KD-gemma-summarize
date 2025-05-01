@@ -10,7 +10,7 @@
 #SBATCH --ntasks-per-node=15
 #SBATCH --mem=70G
 #SBATCH --gpus=l40:1
-#SBATCH --time=10:00:00 # Max runtime in DD-HH:MM:SS format.
+#SBATCH --time=10:00:00 
 
 #SBATCH --chdir=/gscratch/stf/lbc800
 #SBATCH --export=all

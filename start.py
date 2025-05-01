@@ -17,7 +17,7 @@ login(token=huggingface_token)
 
 
 # instantiate teacher and student models
-teacher_name = "mistralai/Mistral-7B-Instruct-v0.3"
+teacher_name = "google/gemma-2-9b-it"
 teacher = AutoModelForCausalLM.from_pretrained(
         teacher_name, torch_dtype=torch.float16, device_map="auto",
         token = huggingface_token
@@ -25,10 +25,14 @@ teacher = AutoModelForCausalLM.from_pretrained(
 
 tokenizer = AutoTokenizer.from_pretrained(teacher_name)
 
-student_cfg = copy.deepcopy(teacher.config)
-student_cfg.num_hidden_layers = 12 
 
-student = AutoModelForCausalLM.from_config(student_cfg)
+student_name = "google/gemma-2-2b-it"
+
+
+student = AutoModelForCausalLM.from_pretrained(
+        student_name, torch_dtype=torch.float16, device_map="auto",
+        token = huggingface_token
+    )
 
 
 #Starting with initialized embedding matrix and output dense layer 
