@@ -33,4 +33,6 @@ student.get_input_embeddings().load_state_dict(
 
 student.lm_head.load_state_dict(teacher.lm_head.state_dict())
 
+print(student)
+
 
