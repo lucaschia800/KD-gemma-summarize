@@ -85,4 +85,4 @@ trainer = GKDTrainer( #default collator set up is good for now
     processing_class=tokenizer
 )
 
-# trainer.train()
+trainer.train()

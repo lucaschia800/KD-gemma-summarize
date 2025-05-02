@@ -14,8 +14,8 @@
 
 #SBATCH --chdir=/gscratch/stf/lbc800
 #SBATCH --export=all
-#SBATCH --output=%x_%j.out
+#SBATCH --output=/mistral-KD/output-logs/%x_%j.out
 
 # Modules to use (optional).
 # Your programs to run.
-apptainer exec --nv --cleanenv --bind /gscratch /gscratch/stf/lbc800/containers/transformers-updated.sif python3 /gscratch/stf/lbc800/python_scripts/train_CLIP.py
+apptainer exec --nv --cleanenv --bind /gscratch /gscratch/stf/lbc800/containers/KD-Container-v1.sif deepspeed /gscratch/stf/lbc800/mistral-KD/start.py
