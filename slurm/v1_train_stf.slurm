@@ -5,11 +5,12 @@
 #SBATCH --mail-user=lbc800@uw.edu
 
 #SBATCH --account=stf
-#SBATCH --partition=gpu-l40
+#SBATCH --partition=gpu-l40s
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=15
-#SBATCH --mem=70G
-#SBATCH --gpus=l40:1
+#SBATCH --ntasks-per-node=2
+#SBATCH --mem=150G
+#SBATCH --gpus=l40s:2
+#SBATCH --cpus-per-task=8
 #SBATCH --time=10:00:00 
 
 #SBATCH --chdir=/gscratch/stf/lbc800
