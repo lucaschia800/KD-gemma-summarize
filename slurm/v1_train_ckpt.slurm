@@ -6,10 +6,10 @@
 
 #SBATCH --account=stf
 #SBATCH --partition=ckpt-all
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=1
-#SBATCH --mem=70G
-#SBATCH --gpus=l40:1
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=2
+#SBATCH --mem=150G
+#SBATCH --gpus=l40s:2
 #SBATCH --time=10:00:00 
 
 #SBATCH --chdir=/gscratch/stf/lbc800
