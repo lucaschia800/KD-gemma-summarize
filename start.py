@@ -47,9 +47,9 @@ student = AutoModelForCausalLM.from_pretrained(
 
 #concatenate datasets
 
-xsum_train = load_from_disk("data/xsum_formatted")
-cnn_train = load_from_disk("data/cnn_formatted")
-sci1_train = load_from_disk("data/sci1_formatted")
+xsum_train = load_from_disk("mistral_KD/data/xsum_formatted")
+cnn_train = load_from_disk("mistral_KD/data/cnn_formatted")
+sci1_train = load_from_disk("mistral_KD/data/sci1_formatted")
 
 train_ds = concatenate_datasets([xsum_train, cnn_train, sci1_train])
 
@@ -58,7 +58,7 @@ train_ds = concatenate_datasets([xsum_train, cnn_train, sci1_train])
 #Starting with no lr scheduler 
 
 train_args = GKDConfig(
-    output_dir="runs/distill",
+    output_dir="mistral_KD/runs/distill",
     per_device_train_batch_size=2,
     gradient_accumulation_steps=8,
     num_train_epochs=2,
@@ -66,7 +66,7 @@ train_args = GKDConfig(
     logging_steps=50,
     save_steps=2000,
     fp16=True,
-    deepspeed="deepspeedconfig.json",
+    deepspeed="mistral_KD/deepspeedconfig.json",
     report_to="none",
     warmup_ratio = 0.1,
     lmbda = 0.5, #default 0.5
