@@ -36,13 +36,13 @@ student = AutoModelForCausalLM.from_pretrained(
 
 #Starting with initialized embedding matrix and output dense layer 
 #not worrying about hidden states for now
-student.get_input_embeddings().load_state_dict(
-        teacher.get_input_embeddings().state_dict()
-    )
+# student.get_input_embeddings().load_state_dict(
+#         teacher.get_input_embeddings().state_dict()
+#     )
 
-student.lm_head.load_state_dict(teacher.lm_head.state_dict())
+# student.lm_head.load_state_dict(teacher.lm_head.state_dict())
 
-print(student)
+# print(student)
 
 
 #concatenate datasets
