@@ -47,9 +47,9 @@ student = AutoModelForCausalLM.from_pretrained(
 
 #concatenate datasets
 
-xsum_train = load_from_disk("mistral_KD/data/xsum_formatted")
-cnn_train = load_from_disk("mistral_KD/data/cnn_formatted")
-sci1_train = load_from_disk("mistral_KD/data/sci1_formatted")
+xsum_train = load_from_disk("mistral-KD/data/xsum_formatted")
+cnn_train = load_from_disk("mistral-KD/data/cnn_formatted")
+sci1_train = load_from_disk("mistral-KD/data/sci1_formatted")
 
 train_ds = concatenate_datasets([xsum_train, cnn_train, sci1_train])
 
