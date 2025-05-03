@@ -69,11 +69,16 @@ sci1 = load_from_disk("mistral-KD/data/sci1_formatted")
 
 raw_ds = concatenate_datasets([xsum, cnn, sci1])
 
+print(raw_ds[0])
+
 proc_ds = raw_ds.map(
     build_example,
     num_proc=4,          
     remove_columns=raw_ds.column_names,  # drop old columns, keep the new ones
 )
 
+print(proc_ds[0])
+print(tokenizer.decode(proc_ds[0]["input_ids"]))
+
 proc_ds.save_to_disk("mistral-KD/data/chatml_tokenised")
-print("✅  Saved to mistral-KD/data/chatml_tokenised")
+print(" Saved to mistral-KD/data/chatml_tokenised")
