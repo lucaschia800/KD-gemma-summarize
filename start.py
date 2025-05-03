@@ -33,6 +33,10 @@ student = AutoModelForCausalLM.from_pretrained(
         token = huggingface_token
     )
 
+for p in teacher.parameters():
+    p.requires_grad = False
+teacher = teacher.eval().to('cuda')
+
 
 #Starting with initialized embedding matrix and output dense layer 
 #not worrying about hidden states for now
@@ -72,6 +76,7 @@ train_args = GKDConfig(
     lmbda = 0.5, #default 0.5
     beta = 0.5, #default 0.5
     seq_kd=False, #Want to use ground truth labels for now
+    dataloader_num_workers=8
 
 )
 

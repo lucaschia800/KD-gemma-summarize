@@ -15,6 +15,7 @@
       "overlap_comm": true,
       "contiguous_gradients": true
     },
-    "zero_allow_untested_optimizer": true
+    "zero_allow_untested_optimizer": true,
+    "communication_timeout": 1200.0
   }
   
