@@ -74,8 +74,8 @@ print(raw_ds[0])
 proc_ds = raw_ds.map(
     build_example,
     num_proc=16,          
-    remove_columns=raw_ds.column_names,  # drop old columns, keep the new ones
-    batch
+    remove_columns=raw_ds.column_names  # drop old columns, keep the new ones
+
 )
 
 print(proc_ds[0])
