@@ -1,9 +1,6 @@
 from transformers import Trainer, TrainingArguments
 import torch
 import torch.nn as nn
-import torch.optim as optim
-import torchvision.transforms as transforms
-import torchvision.datasets as datasets
 from datasets import load_dataset, concatenate_datasets, load_from_disk
 from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
 from huggingface_hub import login
