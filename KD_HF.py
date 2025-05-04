@@ -39,7 +39,7 @@ class KDTrainer(Trainer):
         T = self.temperature
         soft_teacher = nn.functional.softmax(teacher_outputs / T, dim=-1)
         soft_student = nn.functional.log_softmax(student_outputs / T, dim=-1)
-        kd_loss = nn.KLDivLoss(reduction="batchmean")(soft_student, soft_teacher) * (T**2)
+        kd_loss = nn.KLDivLoss(reduction="batchmean")(soft_student, soft_teacher) * (T**2)  #reverse KL
 
         # Hard loss
         ce_loss = nn.CrossEntropyLoss()(student_outputs.view(-1, student_outputs.size(-1)), labels.view(-1))
@@ -67,11 +67,9 @@ student = AutoModelForCausalLM.from_pretrained(
     )
 
 
-xsum_train = load_from_disk("mistral-KD/data/xsum_formatted")
-cnn_train = load_from_disk("mistral-KD/data/cnn_formatted")
-sci1_train = load_from_disk("mistral-KD/data/sci1_formatted")
 
-train_ds = concatenate_datasets([xsum_train, cnn_train, sci1_train])
+
+train_ds = load_from_disk("mistral-KD/data/chatml_tokenised")
 
 
 train_args = TrainingArguments(
@@ -87,4 +85,13 @@ train_args = TrainingArguments(
     report_to="none",
     warmup_ratio = 0.1,
 
+)
+
+trainer = KDTrainer(
+    args = train_args,
+    teacher_model=teacher,
+    model=student,
+    processing_class=tokenizer,
+    train_dataset = train_ds,
+    temperatue = 1.5 #starting with > than 1 as we want an emphasis on the model to match overall distribution not just peaks
 )
