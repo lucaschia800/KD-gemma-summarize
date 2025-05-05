@@ -1,5 +1,4 @@
 import os
-os.environ["TORCH_COMPILE"] = "0"        # must precede torch import
 
 import transformers, torch
 from datasets import load_dataset, load_from_disk
@@ -7,6 +6,10 @@ from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
 from huggingface_hub import login
 from evaluate import evaluator
 import json
+import torch._dynamo as dynamo
+
+
+dynamo.config.cache_size_limit = 64
 
 huggingface_token = os.environ.get('HUGGINGFACE_HUB_TOKEN')
 if huggingface_token is None:
