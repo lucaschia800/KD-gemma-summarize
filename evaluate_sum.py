@@ -1,6 +1,8 @@
+import os
+os.environ["TORCH_COMPILE"] = "0"        # must precede torch import
+
 import transformers, torch
 from datasets import load_dataset, load_from_disk
-import os
 from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
 from huggingface_hub import login
 from evaluate import evaluator
