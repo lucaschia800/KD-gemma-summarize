@@ -15,9 +15,9 @@ login(token=huggingface_token)
 
 teacher_name = "google/gemma-2-9b-it"
 teacher = AutoModelForCausalLM.from_pretrained(
-        teacher_name, torch_dtype=torch.float16, device_map="auto",
+        teacher_name, torch_dtype=torch.float16,
         token = huggingface_token
-    )
+    ).to("cuda:0")  
 
 tokenizer = AutoTokenizer.from_pretrained(teacher_name)
 test_ds = load_from_disk("mistral-KD/data/cnn_eval")
@@ -33,7 +33,8 @@ results = task_evaluator.compute(
     strategy = "bootstrap",
     n_resamples = 250,
     label_column = "summary",
-    input_column = "article"
+    input_column = "article",
+    device = 0,
 )
 
 
