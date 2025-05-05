@@ -23,7 +23,7 @@ tokenizer = AutoTokenizer.from_pretrained(teacher_name)
 test_ds = load_from_disk("mistral-KD/data/cnn_eval")
 
 
-task_evaluator = evaluator("summarization")
+task_evaluator = evaluator("text2text-generation")
 
 results = task_evaluator.compute(
     model_or_pipeline = teacher,
