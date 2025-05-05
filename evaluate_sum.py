@@ -26,7 +26,7 @@ test_ds = load_from_disk("mistral-KD/data/cnn_eval")
 task_evaluator = evaluator("summarization")
 
 results = task_evaluator.compute(
-    model = teacher,
+    model_or_pipeline = teacher,
     metric = "rouge",
     tokenizer = tokenizer,
     data = test_ds,
