@@ -32,7 +32,7 @@ results = task_evaluator.compute(
     data = test_ds,
     strategy = "bootstrap",
     n_resamples = 250,
-    label_colum = "summary",
+    label_column = "summary",
     input_column = "article"
 )
 
