@@ -93,5 +93,5 @@ trainer = KDTrainer(
     model=student,
     processing_class=tokenizer,
     train_dataset = train_ds,
-    temperatue = 1.5 #starting with > than 1 as we want an emphasis on the model to match overall distribution not just peaks
+    temperature = 1.5 #starting with > than 1 as we want an emphasis on the model to match overall distribution not just peaks
 )
