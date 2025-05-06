@@ -90,7 +90,7 @@ if __name__ == "__main__":
     rouge_results = evaluate_rouge(teacher, tokenizer, test_ds)
 
     print(rouge_results)
-    with open("eval_results/teacher_rouge_results.json", "w") as f:
+    with open("/mistral-KD/eval_results/teacher_rouge_results.json", "w") as f:
         json.dump(rouge_results, f, indent=4)
 
 
