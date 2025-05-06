@@ -1,0 +1,16 @@
+compute_environment: SLURM
+deepspeed_config:  
+  gradient_accumulation_steps: 8  
+  offload_optimizer_device: cpu  
+  offload_param_device: cpu  
+  zero_stage: 2  
+  fp16:  
+    enabled: true  
+distributed_type: DEEPSPEED  
+downcast_bf16: 'no'  
+machine_rank: 0  
+main_training_function: main  
+mixed_precision: fp16  
+num_machines: 1  
+num_processes: 2 #gpu count  
+use_cpu: false

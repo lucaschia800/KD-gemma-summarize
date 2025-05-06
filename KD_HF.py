@@ -52,7 +52,7 @@ class KDTrainer(Trainer):
 teacher_name = "google/gemma-2-9b-it"
 teacher = AutoModelForCausalLM.from_pretrained(
         teacher_name, torch_dtype=torch.float16, device_map="auto",
-        token = huggingface_token
+        attn_implementation="flash_attention_2" #according to HF this needs to be done to avoid NaN in logits
     )
 
 tokenizer = AutoTokenizer.from_pretrained(teacher_name)
@@ -63,7 +63,7 @@ student_name = "google/gemma-2-2b-it"
 
 student = AutoModelForCausalLM.from_pretrained(
         student_name, torch_dtype=torch.float16, device_map="auto",
-        token = huggingface_token
+        attn_implementation="flash_attention_2"
     )
 
 
