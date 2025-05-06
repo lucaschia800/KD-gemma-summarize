@@ -9,7 +9,6 @@ import torch._dynamo as dynamo
 
 
 torch.set_float32_matmul_precision("high")
-evaluator.logging.enable_progress_bar()  
 dynamo.config.cache_size_limit = 64
 
 huggingface_token = os.environ.get('HUGGINGFACE_HUB_TOKEN')
