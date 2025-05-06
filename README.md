@@ -1,3 +1,3 @@
-# mistral-KD
+# Gemma-KD
 
-Distlling Mistral-7B for summarization tasks
+Distlling Gemma-9B for summarization tasks
