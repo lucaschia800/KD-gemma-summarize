@@ -1,0 +1,5 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:09<00:29,  9.92s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:19<00:19,  9.96s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:29<00:10, 10.01s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:37<00:00,  9.05s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:37<00:00,  9.39s/it]
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/evaluate_sum.py", line 28, in <module>
+    results = task_evaluator.compute(
+TypeError: SummarizationEvaluator.compute() got an unexpected keyword argument 'label_colum'

@@ -1,0 +1,46 @@
+[2025-05-04 23:51:06,729] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-04 23:51:19,429] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2025-05-04 23:51:19,429] [INFO] [runner.py:605:main] cmd = /usr/bin/python3 -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMF19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None /gscratch/stf/lbc800/mistral-KD/evaluate_sum.py
+[2025-05-04 23:51:21,538] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-04 23:51:27,476] [INFO] [launch.py:139:main] 0 NCCL_VERSION=2.17.1-1
+[2025-05-04 23:51:27,476] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE=libnccl-dev=2.17.1-1+cuda12.1
+[2025-05-04 23:51:27,476] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE_NAME=libnccl-dev
+[2025-05-04 23:51:27,476] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE_VERSION=2.17.1-1
+[2025-05-04 23:51:27,476] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE=libnccl2=2.17.1-1+cuda12.1
+[2025-05-04 23:51:27,476] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE_NAME=libnccl2
+[2025-05-04 23:51:27,476] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE_VERSION=2.17.1-1
+[2025-05-04 23:51:27,477] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0]}
+[2025-05-04 23:51:27,477] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=1, node_rank=0
+[2025-05-04 23:51:27,477] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0]})
+[2025-05-04 23:51:27,477] [INFO] [launch.py:164:main] dist_world_size=1
+[2025-05-04 23:51:27,477] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0
+[2025-05-04 23:51:27,478] [INFO] [launch.py:256:main] process 83006 spawned with command: ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/evaluate_sum.py', '--local_rank=0']
+Traceback (most recent call last):
+  File "/transformers/src/transformers/modeling_utils.py", line 4101, in from_pretrained
+    torch.distributed.init_process_group(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py", line 95, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py", line 1714, in init_process_group
+    store, rank, world_size = next(rendezvous_iterator)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/rendezvous.py", line 274, in _env_rendezvous_handler
+    store = _create_c10d_store(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/rendezvous.py", line 194, in _create_c10d_store
+    return TCPStore(
+RuntimeError: The server socket has failed to listen on any local network address. port: 29500, useIpv6: 0, code: -98, name: EADDRINUSE, message: address already in use
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/evaluate_sum.py", line 17, in <module>
+    teacher = AutoModelForCausalLM.from_pretrained(
+  File "/transformers/src/transformers/models/auto/auto_factory.py", line 571, in from_pretrained
+    return model_class.from_pretrained(
+  File "/transformers/src/transformers/modeling_utils.py", line 280, in _wrapper
+    return func(*args, **kwargs)
+  File "/transformers/src/transformers/modeling_utils.py", line 4116, in from_pretrained
+    raise EnvironmentError(
+OSError: We tried to initialize torch.distributed for you, but it failed, makesure you init torch distributed in your script to use `tp_plan='auto'`
+[2025-05-04 23:51:38,501] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 83006
+[2025-05-04 23:51:38,501] [ERROR] [launch.py:325:sigkill_handler] ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/evaluate_sum.py', '--local_rank=0'] exits with return code = 1

@@ -1,0 +1,53 @@
+[2025-05-05 20:09:24,135] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.3
+[93m [WARNING] [0m using untested triton version (2.3.0), only 1.0.0 is known to be compatible
+[2025-05-05 20:09:28,771] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2025-05-05 20:09:28,772] [INFO] [runner.py:568:main] cmd = /usr/bin/python3 -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None /gscratch/stf/lbc800/mistral-KD/KD_HF.py
+[2025-05-05 20:09:30,885] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-dev package with apt
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
+[93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.3
+[93m [WARNING] [0m using untested triton version (2.3.0), only 1.0.0 is known to be compatible
+[2025-05-05 20:09:32,790] [INFO] [launch.py:139:main] 0 NCCL_VERSION=2.17.1-1
+[2025-05-05 20:09:32,790] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE=libnccl-dev=2.17.1-1+cuda12.1
+[2025-05-05 20:09:32,790] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE_NAME=libnccl-dev
+[2025-05-05 20:09:32,790] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE_VERSION=2.17.1-1
+[2025-05-05 20:09:32,790] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE=libnccl2=2.17.1-1+cuda12.1
+[2025-05-05 20:09:32,790] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE_NAME=libnccl2
+[2025-05-05 20:09:32,790] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE_VERSION=2.17.1-1
+[2025-05-05 20:09:32,790] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2025-05-05 20:09:32,790] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=2, node_rank=0
+[2025-05-05 20:09:32,790] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2025-05-05 20:09:32,790] [INFO] [launch.py:164:main] dist_world_size=2
+[2025-05-05 20:09:32,790] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2025-05-05 20:09:32,791] [INFO] [launch.py:256:main] process 57018 spawned with command: ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/KD_HF.py', '--local_rank=0']
+[2025-05-05 20:09:32,801] [INFO] [launch.py:256:main] process 57019 spawned with command: ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/KD_HF.py', '--local_rank=1']
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/KD_HF.py", line 53, in <module>
+    teacher = AutoModelForCausalLM.from_pretrained(
+  File "/transformers/src/transformers/models/auto/auto_factory.py", line 571, in from_pretrained
+    return model_class.from_pretrained(
+  File "/transformers/src/transformers/modeling_utils.py", line 280, in _wrapper
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/KD_HF.py", line 53, in <module>
+    teacher = AutoModelForCausalLM.from_pretrained(
+  File "/transformers/src/transformers/models/auto/auto_factory.py", line 571, in from_pretrained
+    return model_class.from_pretrained(
+  File "/transformers/src/transformers/modeling_utils.py", line 280, in _wrapper
+    return func(*args, **kwargs)
+  File "/transformers/src/transformers/modeling_utils.py", line 4091, in from_pretrained
+    raise EnvironmentError("tensor parallel is only supported for `torch>=2.5`.")
+OSError: tensor parallel is only supported for `torch>=2.5`.
+    return func(*args, **kwargs)
+  File "/transformers/src/transformers/modeling_utils.py", line 4091, in from_pretrained
+    raise EnvironmentError("tensor parallel is only supported for `torch>=2.5`.")
+OSError: tensor parallel is only supported for `torch>=2.5`.
+[2025-05-05 20:09:42,842] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 57018
+[2025-05-05 20:09:42,873] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 57019
+[2025-05-05 20:09:42,873] [ERROR] [launch.py:325:sigkill_handler] ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/KD_HF.py', '--local_rank=1'] exits with return code = 1

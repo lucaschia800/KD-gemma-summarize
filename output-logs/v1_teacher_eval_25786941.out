@@ -1,0 +1,52 @@
+INFO:    squashfuse_ll mount took an unexpectedly long time: 2.05s
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:17<00:51, 17.20s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:33<00:33, 16.74s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:47<00:15, 15.51s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:06<00:00, 17.00s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:06<00:00, 16.74s/it]
+Device set to use cuda:0
+The model 'Gemma2ForCausalLM' is not supported for text2text-generation. Supported models are ['PeftModelForSeq2SeqLM', 'BartForConditionalGeneration', 'BigBirdPegasusForConditionalGeneration', 'BlenderbotForConditionalGeneration', 'BlenderbotSmallForConditionalGeneration', 'EncoderDecoderModel', 'FSMTForConditionalGeneration', 'GPTSanJapaneseForConditionalGeneration', 'GraniteSpeechForConditionalGeneration', 'LEDForConditionalGeneration', 'LongT5ForConditionalGeneration', 'M2M100ForConditionalGeneration', 'MarianMTModel', 'MBartForConditionalGeneration', 'MT5ForConditionalGeneration', 'MvpForConditionalGeneration', 'NllbMoeForConditionalGeneration', 'PegasusForConditionalGeneration', 'PegasusXForConditionalGeneration', 'PLBartForConditionalGeneration', 'ProphetNetForConditionalGeneration', 'Qwen2AudioForConditionalGeneration', 'SeamlessM4TForTextToText', 'SeamlessM4Tv2ForTextToText', 'SwitchTransformersForConditionalGeneration', 'T5ForConditionalGeneration', 'UMT5ForConditionalGeneration', 'XLMProphetNetForConditionalGeneration'].
+Asking to truncate to max_length but no maximum length is provided and the model has no predefined maximum length. Default to no truncation.
+/usr/local/lib/python3.10/dist-packages/torch/_inductor/compile_fx.py:194: UserWarning: TensorFloat32 tensor cores for float32 matrix multiplication available but not enabled. Consider setting `torch.set_float32_matmul_precision('high')` for better performance.
+  warnings.warn(
+W0505 14:34:58.861000 44363 torch/_dynamo/convert_frame.py:906] [0/8] torch._dynamo hit config.cache_size_limit (8)
+W0505 14:34:58.861000 44363 torch/_dynamo/convert_frame.py:906] [0/8]    function: 'wrapper' (/transformers/src/transformers/utils/generic.py:953)
+W0505 14:34:58.861000 44363 torch/_dynamo/convert_frame.py:906] [0/8]    last reason: 0/7: Cache line invalidated because L['kwargs']['past_key_values'].key_cache[41] got deallocated
+W0505 14:34:58.861000 44363 torch/_dynamo/convert_frame.py:906] [0/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W0505 14:34:58.861000 44363 torch/_dynamo/convert_frame.py:906] [0/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/evaluate_sum.py", line 28, in <module>
+    results = task_evaluator.compute(
+  File "/usr/local/lib/python3.10/dist-packages/evaluate/evaluator/text2text_generation.py", line 133, in compute
+    result = super().compute(
+  File "/usr/local/lib/python3.10/dist-packages/evaluate/evaluator/base.py", line 255, in compute
+    predictions, perf_results = self.call_pipeline(pipe, pipe_inputs)
+  File "/usr/local/lib/python3.10/dist-packages/evaluate/evaluator/base.py", line 513, in call_pipeline
+    pipe_output = pipe(*args, **kwargs, **self.PIPELINE_KWARGS)
+  File "/transformers/src/transformers/pipelines/text2text_generation.py", line 173, in __call__
+    result = super().__call__(*args, **kwargs)
+  File "/transformers/src/transformers/pipelines/base.py", line 1379, in __call__
+    outputs = list(final_iterator)
+  File "/transformers/src/transformers/pipelines/pt_utils.py", line 124, in __next__
+    item = next(self.iterator)
+  File "/transformers/src/transformers/pipelines/pt_utils.py", line 125, in __next__
+    processed = self.infer(item, **self.params)
+  File "/transformers/src/transformers/pipelines/base.py", line 1305, in forward
+    model_outputs = self._forward(model_inputs, **forward_params)
+  File "/transformers/src/transformers/pipelines/text2text_generation.py", line 202, in _forward
+    output_ids = self.model.generate(**model_inputs, **generate_kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/transformers/src/transformers/generation/utils.py", line 2490, in generate
+    result = self._sample(
+  File "/transformers/src/transformers/generation/utils.py", line 3453, in _sample
+    outputs = model_forward(**model_inputs, return_dict=True)
+  File "/usr/local/lib/python3.10/dist-packages/torch/_dynamo/eval_frame.py", line 574, in _fn
+    return fn(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/_dynamo/convert_frame.py", line 1380, in __call__
+    return self._torchdynamo_orig_callable(
+  File "/usr/local/lib/python3.10/dist-packages/torch/_dynamo/convert_frame.py", line 547, in __call__
+    return _compile(
+  File "/usr/local/lib/python3.10/dist-packages/torch/_dynamo/convert_frame.py", line 925, in _compile
+    raise RecompileLimitExceeded(f"{limit_type} reached")
+torch._dynamo.exc.RecompileLimitExceeded: cache_size_limit reached

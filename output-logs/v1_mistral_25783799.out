@@ -1,0 +1,50 @@
+[2025-05-05 12:13:34,974] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-05 12:13:53,143] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2025-05-05 12:13:53,143] [INFO] [runner.py:605:main] cmd = /usr/bin/python3 -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None /gscratch/stf/lbc800/mistral-KD/start.py
+[2025-05-05 12:13:54,356] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-05 12:13:57,950] [INFO] [launch.py:139:main] 0 NCCL_VERSION=2.17.1-1
+[2025-05-05 12:13:57,950] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE=libnccl-dev=2.17.1-1+cuda12.1
+[2025-05-05 12:13:57,950] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE_NAME=libnccl-dev
+[2025-05-05 12:13:57,950] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE_VERSION=2.17.1-1
+[2025-05-05 12:13:57,950] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE=libnccl2=2.17.1-1+cuda12.1
+[2025-05-05 12:13:57,950] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE_NAME=libnccl2
+[2025-05-05 12:13:57,950] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE_VERSION=2.17.1-1
+[2025-05-05 12:13:57,951] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2025-05-05 12:13:57,951] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=2, node_rank=0
+[2025-05-05 12:13:57,951] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2025-05-05 12:13:57,951] [INFO] [launch.py:164:main] dist_world_size=2
+[2025-05-05 12:13:57,951] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2025-05-05 12:13:57,952] [INFO] [launch.py:256:main] process 33041 spawned with command: ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/start.py', '--local_rank=0']
+[2025-05-05 12:13:57,958] [INFO] [launch.py:256:main] process 33042 spawned with command: ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/start.py', '--local_rank=1']
+[2025-05-05 12:14:03,632] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-05 12:14:03,643] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Traceback (most recent call last):
+  File "/transformers/src/transformers/modeling_utils.py", line 4101, in from_pretrained
+    torch.distributed.init_process_group(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py", line 95, in wrapper
+    func_return = func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py", line 1714, in init_process_group
+    store, rank, world_size = next(rendezvous_iterator)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/rendezvous.py", line 274, in _env_rendezvous_handler
+    store = _create_c10d_store(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/rendezvous.py", line 194, in _create_c10d_store
+    return TCPStore(
+RuntimeError: The server socket has failed to listen on any local network address. port: 29500, useIpv6: 0, code: -98, name: EADDRINUSE, message: address already in use
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/start.py", line 20, in <module>
+    teacher = AutoModelForCausalLM.from_pretrained(
+  File "/transformers/src/transformers/models/auto/auto_factory.py", line 571, in from_pretrained
+    return model_class.from_pretrained(
+  File "/transformers/src/transformers/modeling_utils.py", line 280, in _wrapper
+    return func(*args, **kwargs)
+  File "/transformers/src/transformers/modeling_utils.py", line 4116, in from_pretrained
+    raise EnvironmentError(
+OSError: We tried to initialize torch.distributed for you, but it failed, makesure you init torch distributed in your script to use `tp_plan='auto'`
+[2025-05-05 12:14:08,987] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 33041
+[2025-05-05 12:14:08,987] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 33042
+[2025-05-05 12:14:09,160] [ERROR] [launch.py:325:sigkill_handler] ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/start.py', '--local_rank=1'] exits with return code = 1

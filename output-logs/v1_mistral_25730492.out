@@ -1,0 +1,69 @@
+[2025-05-03 12:53:41,707] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-03 12:53:56,905] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2025-05-03 12:53:56,906] [INFO] [runner.py:605:main] cmd = /usr/bin/python3 -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None /gscratch/stf/lbc800/mistral-KD/start.py
+[2025-05-03 12:53:59,085] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-03 12:54:05,970] [INFO] [launch.py:139:main] 0 NCCL_VERSION=2.17.1-1
+[2025-05-03 12:54:05,971] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE=libnccl-dev=2.17.1-1+cuda12.1
+[2025-05-03 12:54:05,971] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE_NAME=libnccl-dev
+[2025-05-03 12:54:05,971] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE_VERSION=2.17.1-1
+[2025-05-03 12:54:05,971] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE=libnccl2=2.17.1-1+cuda12.1
+[2025-05-03 12:54:05,971] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE_NAME=libnccl2
+[2025-05-03 12:54:05,971] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE_VERSION=2.17.1-1
+[2025-05-03 12:54:05,971] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2025-05-03 12:54:05,971] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=2, node_rank=0
+[2025-05-03 12:54:05,971] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2025-05-03 12:54:05,971] [INFO] [launch.py:164:main] dist_world_size=2
+[2025-05-03 12:54:05,971] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2025-05-03 12:54:05,973] [INFO] [launch.py:256:main] process 87024 spawned with command: ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/start.py', '--local_rank=0']
+[2025-05-03 12:54:05,989] [INFO] [launch.py:256:main] process 87025 spawned with command: ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/start.py', '--local_rank=1']
+[2025-05-03 12:54:19,682] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-03 12:54:19,890] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:15<00:47, 15.78s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:32<00:32, 16.38s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:50<00:16, 16.93s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:02<00:00, 15.18s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:02<00:00, 15.67s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:18<00:18, 18.41s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:19<00:00,  8.19s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:19<00:00,  9.73s/it]
+[2025-05-03 12:55:51,711] [INFO] [comm.py:669:init_distributed] cdb=None
+[2025-05-03 12:55:51,711] [INFO] [comm.py:669:init_distributed] cdb=None
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/accelerate/utils/deepspeed.py", line 148, in __init__
+[rank0]:     config = json.loads(config_file_or_dict)
+[rank0]:   File "/usr/lib/python3.10/json/__init__.py", line 346, in loads
+[rank0]:     return _default_decoder.decode(s)
+[rank0]:   File "/usr/lib/python3.10/json/decoder.py", line 337, in decode
+[rank0]:     obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+[rank0]:   File "/usr/lib/python3.10/json/decoder.py", line 355, in raw_decode
+[rank0]:     raise JSONDecodeError("Expecting value", s, err.value) from None
+[rank0]: json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+[rank0]: During handling of the above exception, another exception occurred:
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/accelerate/utils/deepspeed.py", line 151, in __init__
+[rank0]:     config_decoded = base64.urlsafe_b64decode(config_file_or_dict).decode("utf-8")
+[rank0]:   File "/usr/lib/python3.10/base64.py", line 133, in urlsafe_b64decode
+[rank0]:     return b64decode(s)
+[rank0]:   File "/usr/lib/python3.10/base64.py", line 87, in b64decode
+[rank0]:     return binascii.a2b_base64(s)
+[rank0]: binascii.Error: Incorrect padding
+
+[rank0]: During handling of the above exception, another exception occurred:
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/gscratch/stf/lbc800/mistral-KD/start.py", line 60, in <module>
+[rank0]:     train_args = GKDConfig(
+[rank0]:   File "<string>", line 155, in __init__
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/trl/trainer/gkd_config.py", line 100, in __post_init__
+[rank0]:     super().__post_init__()
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/trl/trainer/sft_config.py", line 207, in __post_init__
+[rank0]:     super().__post_init__()
+[rank0]:   File "/transformers/src/transformers/training_args.py", line 2002, in __post_init__
+[rank0]:     self.hf_deepspeed_config = HfTrainerDeepSpeedConfig(self.deepspeed)
+[rank0]:   File "/transformers/src/transformers/integrations/deepspeed.py", line 89, in __init__
+[rank0]:     super().__init__(config_file_or_dict)
+[rank0]:   File "/transformers/src/transformers/integrations/deepspeed.py", line 79, in __init__
+[rank0]:     super().__init__(config_file_or_dict)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/accelerate/utils/deepspeed.py", line 154, in __init__
+[rank0]:     raise ValueError(
+[rank0]: ValueError: Expected a string path to an existing deepspeed config, or a dictionary, or a base64 encoded string. Received: mistral_KD/deepspeedconfig.json
+[rank0]:[W503 12:55:52.156570252 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[2025-05-03 12:55:56,209] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 87024
+[2025-05-03 12:55:56,495] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 87025
+[2025-05-03 12:55:56,495] [ERROR] [launch.py:325:sigkill_handler] ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/start.py', '--local_rank=1'] exits with return code = 1

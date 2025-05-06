@@ -1,0 +1,19 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:11<00:33, 11.29s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:17<00:16,  8.38s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:23<00:07,  7.27s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:28<00:00,  6.53s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:28<00:00,  7.25s/it]
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/evaluate_sum.py", line 28, in <module>
+    results = task_evaluator.compute(
+  File "/usr/local/lib/python3.10/dist-packages/evaluate/evaluator/text2text_generation.py", line 191, in compute
+    result = super().compute(
+  File "/usr/local/lib/python3.10/dist-packages/evaluate/evaluator/text2text_generation.py", line 133, in compute
+    result = super().compute(
+  File "/usr/local/lib/python3.10/dist-packages/evaluate/evaluator/base.py", line 246, in compute
+    pipe = self.prepare_pipeline(
+  File "/usr/local/lib/python3.10/dist-packages/evaluate/evaluator/base.py", line 460, in prepare_pipeline
+    pipe = pipeline(
+  File "/transformers/src/transformers/pipelines/__init__.py", line 1180, in pipeline
+    return pipeline_class(model=model, framework=framework, task=task, **kwargs)
+  File "/transformers/src/transformers/pipelines/text2text_generation.py", line 67, in __init__
+    super().__init__(*args, **kwargs)
+  File "/transformers/src/transformers/pipelines/base.py", line 950, in __init__
+    raise ValueError(
+ValueError: The model has been loaded with `accelerate` and therefore cannot be moved to a specific device. Please discard the `device` argument when creating your pipeline object.

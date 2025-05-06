@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/evaluate_sum.py", line 12, in <module>
+    evaluate.logging.enable_progress_bar()  
+NameError: name 'evaluate' is not defined. Did you mean: 'evaluator'?

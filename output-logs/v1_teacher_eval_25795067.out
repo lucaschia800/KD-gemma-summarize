@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/evaluate_sum.py", line 12, in <module>
+    evaluator.logging.enable_progress_bar()  
+AttributeError: 'function' object has no attribute 'logging'

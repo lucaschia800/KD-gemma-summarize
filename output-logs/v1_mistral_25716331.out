@@ -1,0 +1,76 @@
+[2025-05-02 19:30:25,994] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+df: /mmfs1/home/lbc800/.triton/autotune: No such file or directory
+[2025-05-02 19:30:41,769] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2025-05-02 19:30:41,769] [INFO] [runner.py:605:main] cmd = /usr/bin/python3 -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None /gscratch/stf/lbc800/mistral-KD/start.py
+[2025-05-02 19:30:42,996] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-02 19:30:47,734] [INFO] [launch.py:139:main] 0 NCCL_VERSION=2.17.1-1
+[2025-05-02 19:30:47,734] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE=libnccl-dev=2.17.1-1+cuda12.1
+[2025-05-02 19:30:47,734] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE_NAME=libnccl-dev
+[2025-05-02 19:30:47,734] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE_VERSION=2.17.1-1
+[2025-05-02 19:30:47,734] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE=libnccl2=2.17.1-1+cuda12.1
+[2025-05-02 19:30:47,734] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE_NAME=libnccl2
+[2025-05-02 19:30:47,734] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE_VERSION=2.17.1-1
+[2025-05-02 19:30:47,735] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2025-05-02 19:30:47,735] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=2, node_rank=0
+[2025-05-02 19:30:47,735] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2025-05-02 19:30:47,735] [INFO] [launch.py:164:main] dist_world_size=2
+[2025-05-02 19:30:47,735] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2025-05-02 19:30:47,736] [INFO] [launch.py:256:main] process 87413 spawned with command: ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/start.py', '--local_rank=0']
+[2025-05-02 19:30:47,745] [INFO] [launch.py:256:main] process 87414 spawned with command: ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/start.py', '--local_rank=1']
+[2025-05-02 19:30:54,538] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-02 19:30:54,617] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files:   0%|          | 0/4 [01:42<?, ?it/s]
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/gscratch/stf/lbc800/mistral-KD/start.py", line 20, in <module>
+[rank0]:     teacher = AutoModelForCausalLM.from_pretrained(
+[rank0]:   File "/transformers/src/transformers/models/auto/auto_factory.py", line 571, in from_pretrained
+[rank0]:     return model_class.from_pretrained(
+[rank0]:   File "/transformers/src/transformers/modeling_utils.py", line 280, in _wrapper
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/transformers/src/transformers/modeling_utils.py", line 4362, in from_pretrained
+[rank0]:     checkpoint_files, sharded_metadata = _get_resolved_checkpoint_files(
+[rank0]:   File "/transformers/src/transformers/modeling_utils.py", line 1140, in _get_resolved_checkpoint_files
+[rank0]:     checkpoint_files, sharded_metadata = get_checkpoint_shard_files(
+[rank0]:   File "/transformers/src/transformers/utils/hub.py", line 1110, in get_checkpoint_shard_files
+[rank0]:     cached_filenames = cached_files(
+[rank0]:   File "/transformers/src/transformers/utils/hub.py", line 557, in cached_files
+[rank0]:     raise e
+[rank0]:   File "/transformers/src/transformers/utils/hub.py", line 485, in cached_files
+[rank0]:     snapshot_download(
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/huggingface_hub/_snapshot_download.py", line 296, in snapshot_download
+[rank0]:     thread_map(
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/tqdm/contrib/concurrent.py", line 69, in thread_map
+[rank0]:     return _executor_map(ThreadPoolExecutor, fn, *iterables, **tqdm_kwargs)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/tqdm/contrib/concurrent.py", line 51, in _executor_map
+[rank0]:     return list(tqdm_class(ex.map(fn, *iterables, chunksize=chunksize), **kwargs))
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/tqdm/std.py", line 1181, in __iter__
+[rank0]:     for obj in iterable:
+[rank0]:   File "/usr/lib/python3.10/concurrent/futures/_base.py", line 621, in result_iterator
+[rank0]:     yield _result_or_cancel(fs.pop())
+[rank0]:   File "/usr/lib/python3.10/concurrent/futures/_base.py", line 319, in _result_or_cancel
+[rank0]:     return fut.result(timeout)
+[rank0]:   File "/usr/lib/python3.10/concurrent/futures/_base.py", line 458, in result
+[rank0]:     return self.__get_result()
+[rank0]:   File "/usr/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+[rank0]:     raise self._exception
+[rank0]:   File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+[rank0]:     result = self.fn(*self.args, **self.kwargs)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/huggingface_hub/_snapshot_download.py", line 270, in _inner_hf_hub_download
+[rank0]:     return hf_hub_download(
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/huggingface_hub/file_download.py", line 961, in hf_hub_download
+[rank0]:     return _hf_hub_download_to_cache_dir(
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/huggingface_hub/file_download.py", line 1112, in _hf_hub_download_to_cache_dir
+[rank0]:     _download_to_tmp_and_move(
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/huggingface_hub/file_download.py", line 1675, in _download_to_tmp_and_move
+[rank0]:     http_get(
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/huggingface_hub/file_download.py", line 452, in http_get
+[rank0]:     temp_file.write(chunk)
+[rank0]: OSError: [Errno 122] Disk quota exceeded
+[rank0]:[W502 19:32:42.794874404 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[2025-05-02 19:32:48,887] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 87413
+[2025-05-02 19:32:48,887] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 87414
+[2025-05-02 19:32:48,935] [ERROR] [launch.py:325:sigkill_handler] ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/start.py', '--local_rank=1'] exits with return code = 1

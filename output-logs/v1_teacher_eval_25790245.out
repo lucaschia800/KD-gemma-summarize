@@ -1,0 +1,18 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:13<00:39, 13.23s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:26<00:26, 13.05s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:38<00:12, 12.90s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:48<00:00, 11.59s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:48<00:00, 12.11s/it]
+Device set to use cuda:0
+/usr/local/lib/python3.10/dist-packages/torch/_inductor/compile_fx.py:194: UserWarning: TensorFloat32 tensor cores for float32 matrix multiplication available but not enabled. Consider setting `torch.set_float32_matmul_precision('high')` for better performance.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/evaluate_sum.py", line 33, in <module>
+    results = task_evaluator.compute(
+  File "/usr/local/lib/python3.10/dist-packages/evaluate/evaluator/base.py", line 261, in compute
+    metric_results = self.compute_metric(
+  File "/usr/local/lib/python3.10/dist-packages/evaluate/evaluator/base.py", line 527, in compute_metric
+    result = metric.compute(**metric_inputs, **self.METRIC_KWARGS)
+  File "/usr/local/lib/python3.10/dist-packages/evaluate/module.py", line 456, in compute
+    self._finalize()
+  File "/usr/local/lib/python3.10/dist-packages/evaluate/module.py", line 399, in _finalize
+    file_paths, filelocks = self._get_all_cache_files()
+  File "/usr/local/lib/python3.10/dist-packages/evaluate/module.py", line 316, in _get_all_cache_files
+    raise ValueError(
+ValueError: Evaluation module cache file doesn't exist. Please make sure that you call `add` or `add_batch` at least once before calling `compute`.

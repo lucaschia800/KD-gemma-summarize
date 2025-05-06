@@ -1,0 +1,32 @@
+[2025-05-02 21:59:30,839] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-02 21:59:49,679] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2025-05-02 21:59:49,679] [INFO] [runner.py:605:main] cmd = /usr/bin/python3 -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None /gscratch/stf/lbc800/mistral-KD/start.py
+[2025-05-02 21:59:51,811] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-02 21:59:59,641] [INFO] [launch.py:139:main] 0 NCCL_VERSION=2.17.1-1
+[2025-05-02 21:59:59,642] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE=libnccl-dev=2.17.1-1+cuda12.1
+[2025-05-02 21:59:59,642] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE_NAME=libnccl-dev
+[2025-05-02 21:59:59,642] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE_VERSION=2.17.1-1
+[2025-05-02 21:59:59,642] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE=libnccl2=2.17.1-1+cuda12.1
+[2025-05-02 21:59:59,642] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE_NAME=libnccl2
+[2025-05-02 21:59:59,642] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE_VERSION=2.17.1-1
+[2025-05-02 21:59:59,642] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2025-05-02 21:59:59,642] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=2, node_rank=0
+[2025-05-02 21:59:59,642] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2025-05-02 21:59:59,642] [INFO] [launch.py:164:main] dist_world_size=2
+[2025-05-02 21:59:59,642] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2025-05-02 21:59:59,644] [INFO] [launch.py:256:main] process 70366 spawned with command: ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/start.py', '--local_rank=0']
+[2025-05-02 21:59:59,647] [INFO] [launch.py:256:main] process 70367 spawned with command: ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/start.py', '--local_rank=1']
+[2025-05-02 22:00:11,883] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-02 22:00:11,888] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:15<00:46, 15.45s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:35<00:36, 18.08s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:53<00:17, 17.89s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:08<00:00, 16.93s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:08<00:00, 17.12s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:18<00:18, 18.27s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:19<00:00,  8.19s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:19<00:00,  9.70s/it]
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/gscratch/stf/lbc800/mistral-KD/start.py", line 50, in <module>
+[rank0]:     xsum_train = load_from_disk("mistral_KD/data/xsum_formatted")
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/datasets/load.py", line 2140, in load_from_disk
+[rank0]:     raise FileNotFoundError(f"Directory {dataset_path} not found")
+[rank0]: FileNotFoundError: Directory mistral_KD/data/xsum_formatted not found
+[rank0]:[W502 22:01:48.431363071 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[2025-05-02 22:01:53,875] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 70366
+[2025-05-02 22:01:53,990] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 70367
+[2025-05-02 22:01:54,003] [ERROR] [launch.py:325:sigkill_handler] ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/start.py', '--local_rank=1'] exits with return code = 1

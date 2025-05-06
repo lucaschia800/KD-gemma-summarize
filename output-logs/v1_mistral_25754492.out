@@ -1,0 +1,38 @@
+[2025-05-04 21:54:44,644] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-04 21:54:55,009] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2025-05-04 21:54:55,009] [INFO] [runner.py:605:main] cmd = /usr/bin/python3 -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None /gscratch/stf/lbc800/mistral-KD/KD_HF.py
+[2025-05-04 21:54:56,253] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-04 21:55:01,147] [INFO] [launch.py:139:main] 0 NCCL_VERSION=2.17.1-1
+[2025-05-04 21:55:01,147] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE=libnccl-dev=2.17.1-1+cuda12.1
+[2025-05-04 21:55:01,147] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE_NAME=libnccl-dev
+[2025-05-04 21:55:01,147] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_DEV_PACKAGE_VERSION=2.17.1-1
+[2025-05-04 21:55:01,147] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE=libnccl2=2.17.1-1+cuda12.1
+[2025-05-04 21:55:01,147] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE_NAME=libnccl2
+[2025-05-04 21:55:01,147] [INFO] [launch.py:139:main] 0 NV_LIBNCCL_PACKAGE_VERSION=2.17.1-1
+[2025-05-04 21:55:01,147] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2025-05-04 21:55:01,147] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=2, node_rank=0
+[2025-05-04 21:55:01,147] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2025-05-04 21:55:01,147] [INFO] [launch.py:164:main] dist_world_size=2
+[2025-05-04 21:55:01,147] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2025-05-04 21:55:01,148] [INFO] [launch.py:256:main] process 93031 spawned with command: ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/KD_HF.py', '--local_rank=0']
+[2025-05-04 21:55:01,152] [INFO] [launch.py:256:main] process 93032 spawned with command: ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/KD_HF.py', '--local_rank=1']
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:11<00:35, 11.77s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:26<00:27, 13.60s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:40<00:13, 13.69s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:51<00:00, 12.58s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:51<00:00, 12.83s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:14<00:14, 14.70s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:15<00:00,  6.64s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:15<00:00,  7.85s/it]
+[2025-05-04 21:56:25,089] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+/usr/bin/ld: cannot find -laio: No such file or directory
+collect2: error: ld returned 1 exit status
+/usr/bin/ld: cannot find -laio: No such file or directory
+collect2: error: ld returned 1 exit status
+[2025-05-04 21:56:26,671] [INFO] [comm.py:669:init_distributed] cdb=None
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/gscratch/stf/lbc800/mistral-KD/KD_HF.py", line 90, in <module>
+[rank0]:     trainer = KDTrainer(
+[rank0]:   File "/gscratch/stf/lbc800/mistral-KD/KD_HF.py", line 18, in __init__
+[rank0]:     super().__init__(**kwargs)
+[rank0]:   File "/transformers/src/transformers/utils/deprecation.py", line 172, in wrapped_func
+[rank0]:     return func(*args, **kwargs)
+[rank0]: TypeError: Trainer.__init__() got an unexpected keyword argument 'temperatue'
+[rank0]:[W504 21:56:28.142940850 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[2025-05-04 21:56:32,308] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 93031
+[2025-05-04 21:56:32,308] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 93032
+[2025-05-04 21:56:32,348] [ERROR] [launch.py:325:sigkill_handler] ['/usr/bin/python3', '-u', '/gscratch/stf/lbc800/mistral-KD/KD_HF.py', '--local_rank=1'] exits with return code = 1
