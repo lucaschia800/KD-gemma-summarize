@@ -41,7 +41,7 @@ def evaluate_rouge(model, tokenizer, dataset):
 
         return inputs
 
-    dataloader = torch.utils.data.DataLoader(dataset, batch_size=32, collate_fn = collator)
+    dataloader = torch.utils.data.DataLoader(dataset, batch_size=16, collate_fn = collator)
     predictions = []
     ground_truths = []
 
