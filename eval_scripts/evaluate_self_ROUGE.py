@@ -53,8 +53,8 @@ def evaluate_rouge(model, tokenizer, dataset):
             outputs = model.generate(
                 input_ids=inputs,
                 attention_mask=attention_mask,
-                max_length=250,
-                num_beams=4,
+                max_new_tokens=250,
+                do_sample=False,  # Greedy decoding
                 early_stopping=True,
             )
 
@@ -80,8 +80,6 @@ def evaluate_rouge(model, tokenizer, dataset):
 if __name__ == "__main__":
     # Load the dataset
     test_ds = load_from_disk("mistral-KD/data/cnn_eval")
-    test_ds.set_format("torch", columns=["article", "summary"])
-
     # Load the model and tokenizer
     teacher_name = "google/gemma-2-9b-it"
     teacher = AutoModelForCausalLM.from_pretrained(
