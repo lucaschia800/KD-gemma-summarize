@@ -10,7 +10,7 @@
 #SBATCH --ntasks-per-node=2
 #SBATCH --mem=150G
 #SBATCH --gpus=l40s:2
-#SBATCH --time=10:00:00 
+#SBATCH --time=20:00:00
 
 #SBATCH --chdir=/gscratch/stf/lbc800
 #SBATCH --export=all
