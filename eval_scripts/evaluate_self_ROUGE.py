@@ -26,21 +26,26 @@ def evaluate_rouge(model, tokenizer, dataset):
 
     def collator(batch):
         # Tokenize the input text and labels
+
+        articles = [example["article"] for example in batch]
+        summaries = [example["summary"] for example in batch]
+
         inputs = tokenizer(
-            batch["article"],
+            articles,
             max_length=1500,
             truncation=True,
             padding="max_length",
             return_tensors="pt",
         )
-        
+        inputs['summary'] = summaries
+
         return inputs
 
     dataloader = torch.utils.data.DataLoader(dataset, batch_size=32, collate_fn = collator)
     predictions = []
     ground_truths = []
 
-    for batch in tqdm(dataloader):
+    for batch in tqdm(dataloader):  
         inputs = batch["input_ids"].to("cuda:0")
         attention_mask = batch["attention_mask"].to("cuda:0")
 
