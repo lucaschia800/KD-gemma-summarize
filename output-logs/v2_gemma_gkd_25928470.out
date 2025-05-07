@@ -1,0 +1,55 @@
+slurmstepd: error: execve():  : No such file or directory
+srun: error: g3103: task 0: Exited with exit code 2
+[2025-05-06 17:24:24,562] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-06 17:24:35,077] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-06 17:24:35,080] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-06 17:24:35,086] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py", line 20, in <module>
+[rank0]:     teacher = AutoModelForCausalLM.from_pretrained(
+[rank0]:   File "/transformers/src/transformers/models/auto/auto_factory.py", line 571, in from_pretrained
+[rank0]:     return model_class.from_pretrained(
+[rank0]:   File "/transformers/src/transformers/modeling_utils.py", line 280, in _wrapper
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/transformers/src/transformers/modeling_utils.py", line 4438, in from_pretrained
+[rank0]:     config = cls._autoset_attn_implementation(
+[rank0]:   File "/transformers/src/transformers/modeling_utils.py", line 2129, in _autoset_attn_implementation
+[rank0]:     cls._check_and_enable_flash_attn_2(
+[rank0]:   File "/transformers/src/transformers/modeling_utils.py", line 2271, in _check_and_enable_flash_attn_2
+[rank0]:     raise ImportError(f"{preface} the package flash_attn seems to be not installed. {install_message}")
+[rank0]: ImportError: FlashAttention2 has been toggled on, but it cannot be used due to the following error: the package flash_attn seems to be not installed. Please refer to the documentation of https://huggingface.co/docs/transformers/perf_infer_gpu_one#flashattention-2 to install Flash Attention 2.
+[rank0]:[W506 17:24:37.626771899 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W0506 17:24:41.888000 47722 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 49715 closing signal SIGTERM
+W0506 17:24:41.888000 47722 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 49716 closing signal SIGTERM
+E0506 17:24:42.054000 47722 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 49714) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 1196, in launch_command
+    deepspeed_launcher(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 878, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-05-06_17:24:41
+  host      : g3103.hyak.local
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 49714)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/eval_scripts/evaluate_self_ROUGE.py", line 15, in <module>
+    torch._dynamo.config.enabled = False
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/_config_module.py", line 268, in __setattr__
+    raise AttributeError(f"{self.__name__}.{name} does not exist")
+AttributeError: torch._dynamo.config.enabled does not exist

@@ -1,0 +1,56 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:07<00:23,  7.97s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:15<00:15,  7.81s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:23<00:07,  7.74s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:29<00:00,  7.03s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:29<00:00,  7.32s/it]
+  0%|          | 0/360 [00:00<?, ?it/s]/transformers/src/transformers/generation/configuration_utils.py:684: UserWarning: `num_beams` is set to 1. However, `early_stopping` is set to `True` -- this flag is only used in beam-based generation modes. You should set `num_beams>1` or unset `early_stopping`.
+  warnings.warn(
+  0%|          | 0/360 [00:55<?, ?it/s]
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/eval_scripts/evaluate_self_ROUGE.py", line 93, in <module>
+    rouge_results = evaluate_rouge(teacher, tokenizer, test_ds)
+  File "/gscratch/stf/lbc800/mistral-KD/eval_scripts/evaluate_self_ROUGE.py", line 53, in evaluate_rouge
+    outputs = model.generate(
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/transformers/src/transformers/generation/utils.py", line 2490, in generate
+    result = self._sample(
+  File "/transformers/src/transformers/generation/utils.py", line 3453, in _sample
+    outputs = model_forward(**model_inputs, return_dict=True)
+  File "/usr/local/lib/python3.10/dist-packages/torch/_dynamo/eval_frame.py", line 574, in _fn
+    return fn(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/transformers/src/transformers/utils/generic.py", line 953, in wrapper
+    @wraps(func)
+  File "/usr/local/lib/python3.10/dist-packages/torch/_dynamo/eval_frame.py", line 745, in _fn
+    return fn(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/_functorch/aot_autograd.py", line 1184, in forward
+    return compiled_fn(full_args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 323, in runtime_wrapper
+    all_outs = call_func_at_runtime_with_args(
+  File "/usr/local/lib/python3.10/dist-packages/torch/_functorch/_aot_autograd/utils.py", line 126, in call_func_at_runtime_with_args
+    out = normalize_as_list(f(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 672, in inner_fn
+    outs = compiled_fn(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 490, in wrapper
+    return compiled_fn(runtime_args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/_inductor/output_code.py", line 466, in __call__
+    return self.current_callable(inputs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/_inductor/compile_fx.py", line 1208, in run
+    return compiled_fn(new_inputs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/_inductor/cudagraph_trees.py", line 398, in deferred_cudagraphify
+    fn, out = cudagraphify(model, inputs, new_static_input_idxs, *args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/_inductor/cudagraph_trees.py", line 428, in cudagraphify
+    return manager.add_function(
+  File "/usr/local/lib/python3.10/dist-packages/torch/_inductor/cudagraph_trees.py", line 2253, in add_function
+    return fn, fn(inputs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/_inductor/cudagraph_trees.py", line 1947, in run
+    out = self._run(new_inputs, function_id)
+  File "/usr/local/lib/python3.10/dist-packages/torch/_inductor/cudagraph_trees.py", line 2055, in _run
+    out = self.run_eager(new_inputs, function_id)
+  File "/usr/local/lib/python3.10/dist-packages/torch/_inductor/cudagraph_trees.py", line 2219, in run_eager
+    return node.run(new_inputs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/_inductor/cudagraph_trees.py", line 643, in run
+    out = self.wrapped_function.model(new_inputs)
+  File "/tmp/torchinductor_lbc800/lj/cljoo2sf46seoo6i3kwucsud2s7zcy7kgzqumk4rovhongfclivi.py", line 2485, in call
+    buf1035 = empty_strided_cuda((32, 8, 1749, 256), (3581952, 447744, 256, 1), torch.float16)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 220.00 MiB. GPU 0 has a total capacity of 44.42 GiB of which 68.12 MiB is free. Including non-PyTorch memory, this process has 44.34 GiB memory in use. Of the allocated memory 43.65 GiB is allocated by PyTorch, with 138.17 MiB allocated in private pools (e.g., CUDA Graphs), and 177.52 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
