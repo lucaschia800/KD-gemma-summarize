@@ -83,7 +83,7 @@ if __name__ == "__main__":
     # Load the model and tokenizer
     teacher_name = "google/gemma-2-9b-it"
     teacher = AutoModelForCausalLM.from_pretrained(
-        teacher_name, torch_dtype=torch.float16
+        teacher_name, torch_dtype=torch.float16, flash_attention=True
     ).to("cuda:0")  
 
     tokenizer = AutoTokenizer.from_pretrained(teacher_name)
