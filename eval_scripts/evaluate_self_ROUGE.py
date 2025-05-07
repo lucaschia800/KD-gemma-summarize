@@ -11,7 +11,8 @@ from tqdm import tqdm
 torch.set_float32_matmul_precision("high")
 # dynamo.config.cache_size_limit = 64
 # # if Dynamo errors, suppress and run in eager mode
-# torch._dynamo.config.suppress_errors = True
+# torch._dynamo.config.suppress_errors = 
+torch._dynamo.config.enabled = False
 
 
 huggingface_token = os.environ.get('HUGGINGFACE_HUB_TOKEN')
