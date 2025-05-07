@@ -14,6 +14,7 @@ torch.set_float32_matmul_precision("high")
 # torch._dynamo.config.suppress_errors = 
 # torch._dynamo.config.enabled = False
 torch._dynamo.config.capture_dynamic_output_shape_ops = True
+torch._dynamo.config.capture_scalar_outputs = True
 
 
 
