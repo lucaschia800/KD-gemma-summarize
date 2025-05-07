@@ -23,6 +23,7 @@ login(token=huggingface_token)
 def evaluate_rouge(model, tokenizer, dataset):
 
     task_evaluator = evaluate.load("rouge")
+    task_evaluator_2 = evaluate.load('bertscore')
 
     def collator(batch):
         # Tokenize the input text and labels
@@ -71,7 +72,16 @@ def evaluate_rouge(model, tokenizer, dataset):
         rouge_types=["rouge1", "rouge2", "rougeL"],
     )
 
-    return rouge_results
+    bertscore_results = task_evaluator_2.compute(
+        predictions=predictions,
+        references=ground_truths,
+        lang="en",
+        rescale_with_baseline=True, #When set to True, BERTScore rescales the raw similarity scores using a baseline derived from comparing random sentence pairs. 
+        #This helps to make the scores more interpretable by adjusting for the baseline similarity that even unrelated sentences might have.
+        use_fast_tokenizer=True,
+    )
+
+    return rouge_results, bertscore_results
 
 
 
@@ -91,11 +101,14 @@ if __name__ == "__main__":
 
     # Evaluate the model using ROUGE
     teacher.eval()
-    rouge_results = evaluate_rouge(teacher, tokenizer, test_ds)
+    rouge_results, bertscore_results = evaluate_rouge(teacher, tokenizer, test_ds)
 
     print(rouge_results)
+    print(bertscore_results)
     with open("mistral-KD/eval_results/teacher_rouge_results.json", "w") as f:
         json.dump(rouge_results, f, indent=4)
 
 
+    with open("mistral-KD/eval_results/teacher_bertscore_results.json", "w") as f:
+        json.dump(bertscore_results, f, indent=4)
 
