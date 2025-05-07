@@ -12,7 +12,10 @@ torch.set_float32_matmul_precision("high")
 # dynamo.config.cache_size_limit = 64
 # # if Dynamo errors, suppress and run in eager mode
 # torch._dynamo.config.suppress_errors = 
-torch._dynamo.config.enabled = False
+# torch._dynamo.config.enabled = False
+torch._dynamo.config.capture_dynamic_output_shape_ops = True
+
+
 
 
 huggingface_token = os.environ.get('HUGGINGFACE_HUB_TOKEN')
