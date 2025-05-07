@@ -41,7 +41,7 @@ def evaluate_rouge(model, tokenizer, dataset):
 
         return inputs
 
-    dataloader = torch.utils.data.DataLoader(dataset, batch_size=16, collate_fn = collator)
+    dataloader = torch.utils.data.DataLoader(dataset, batch_size=18, collate_fn = collator)
     predictions = []
     ground_truths = []
 
@@ -55,6 +55,7 @@ def evaluate_rouge(model, tokenizer, dataset):
                 attention_mask=attention_mask,
                 max_new_tokens=250,
                 do_sample=False,  # Greedy decoding
+                # num_beam = 4 switch to beam search maybe
                 early_stopping=True,
             )
 
