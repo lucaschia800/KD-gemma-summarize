@@ -1,0 +1,14 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:08<00:24,  8.22s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:17<00:17,  8.55s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:25<00:08,  8.62s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:32<00:00,  7.97s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:32<00:00,  8.17s/it]
+  0%|          | 0/360 [00:00<?, ?it/s]  0%|          | 0/360 [00:02<?, ?it/s]
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/eval_scripts/evaluate_self_ROUGE.py", line 95, in <module>
+    rouge_results = evaluate_rouge(teacher, tokenizer, test_ds)
+  File "/gscratch/stf/lbc800/mistral-KD/eval_scripts/evaluate_self_ROUGE.py", line 53, in evaluate_rouge
+    outputs = model.generate(
+  File "/usr/local/lib/python3.10/dist-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/transformers/src/transformers/generation/utils.py", line 2346, in generate
+    self._validate_generated_length(generation_config, input_ids_length, has_default_max_length)
+  File "/transformers/src/transformers/generation/utils.py", line 1537, in _validate_generated_length
+    raise ValueError(
+ValueError: Input length of input_ids is 1500, but `max_length` is set to 250. This can lead to unexpected behavior. You should consider increasing `max_length` or, better yet, setting `max_new_tokens`.

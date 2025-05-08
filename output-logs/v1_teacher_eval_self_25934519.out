@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/eval_scripts/evaluate_self_ROUGE.py", line 96, in <module>
+    teacher = AutoModelForCausalLM.from_pretrained(
+  File "/transformers/src/transformers/models/auto/auto_factory.py", line 571, in from_pretrained
+    return model_class.from_pretrained(
+  File "/transformers/src/transformers/modeling_utils.py", line 280, in _wrapper
+    return func(*args, **kwargs)
+  File "/transformers/src/transformers/modeling_utils.py", line 4447, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+TypeError: Gemma2ForCausalLM.__init__() got an unexpected keyword argument 'flash_attention'

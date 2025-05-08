@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/eval_scripts/evaluate_self_ROUGE.py", line 96, in <module>
+    teacher = AutoModelForCausalLM.from_pretrained(
+  File "/transformers/src/transformers/models/auto/auto_factory.py", line 571, in from_pretrained
+    return model_class.from_pretrained(
+  File "/transformers/src/transformers/modeling_utils.py", line 280, in _wrapper
+    return func(*args, **kwargs)
+  File "/transformers/src/transformers/modeling_utils.py", line 4438, in from_pretrained
+    config = cls._autoset_attn_implementation(
+  File "/transformers/src/transformers/modeling_utils.py", line 2129, in _autoset_attn_implementation
+    cls._check_and_enable_flash_attn_2(
+  File "/transformers/src/transformers/modeling_utils.py", line 2271, in _check_and_enable_flash_attn_2
+    raise ImportError(f"{preface} the package flash_attn seems to be not installed. {install_message}")
+ImportError: FlashAttention2 has been toggled on, but it cannot be used due to the following error: the package flash_attn seems to be not installed. Please refer to the documentation of https://huggingface.co/docs/transformers/perf_infer_gpu_one#flashattention-2 to install Flash Attention 2.

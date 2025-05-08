@@ -1,0 +1,65 @@
+[2025-05-07 00:43:49,390] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-07 00:43:57,795] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-07 00:43:57,796] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-07 00:43:57,797] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:19<00:58, 19.49s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:50<00:52, 26.36s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [01:19<00:27, 27.31s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:38<00:00, 24.19s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:38<00:00, 24.62s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:29<00:29, 29.59s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:31<00:00, 13.16s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:31<00:00, 15.63s/it]
+[2025-05-07 00:46:23,247] [INFO] [comm.py:669:init_distributed] cdb=None
+[2025-05-07 00:46:23,248] [INFO] [comm.py:669:init_distributed] cdb=None
+[2025-05-07 00:46:23,248] [INFO] [comm.py:669:init_distributed] cdb=None
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py", line 63, in <module>
+[rank0]:     train_args = GKDConfig(
+[rank0]:   File "<string>", line 155, in __init__
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/trl/trainer/gkd_config.py", line 100, in __post_init__
+[rank0]:     super().__post_init__()
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/trl/trainer/sft_config.py", line 207, in __post_init__
+[rank0]:     super().__post_init__()
+[rank0]:   File "/transformers/src/transformers/training_args.py", line 2009, in __post_init__
+[rank0]:     self.deepspeed_plugin = DeepSpeedPlugin(hf_ds_config=self.hf_deepspeed_config)
+[rank0]:   File "<string>", line 17, in __init__
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/accelerate/utils/dataclasses.py", line 1176, in __post_init__
+[rank0]:     self._deepspeed_config_checks()
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/accelerate/utils/dataclasses.py", line 1390, in _deepspeed_config_checks
+[rank0]:     raise ValueError(
+[rank0]: ValueError: When using `deepspeed_config_file`, the following accelerate config variables will be ignored: ['gradient_accumulation_steps', 'gradient_clipping', 'zero_stage', 'offload_optimizer_device', 'offload_param_device', 'offload_param_nvme_path', 'offload_optimizer_nvme_path', 'zero3_save_16bit_model', 'mixed_precision'].
+[rank0]: Please specify them appropriately in the DeepSpeed config file.
+[rank0]: If you are using an accelerate config file, remove others config variables mentioned in the above specified list.
+[rank0]: The easiest method is to create a new config following the questionnaire via `accelerate config`.
+[rank0]: It will only ask for the necessary config variables when using `deepspeed_config_file`.
+[rank0]:[W507 00:46:28.766581104 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W0507 00:46:34.543000 84173 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 85188 closing signal SIGTERM
+W0507 00:46:34.543000 84173 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 85189 closing signal SIGTERM
+E0507 00:46:34.657000 84173 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 2 (pid: 85190) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 1196, in launch_command
+    deepspeed_launcher(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 878, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-05-07_00:46:34
+  host      : g3100.hyak.local
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 85190)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+srun: error: g3100: task 0: Exited with exit code 1
