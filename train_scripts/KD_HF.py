@@ -73,11 +73,12 @@ train_ds = load_from_disk("mistral-KD/data/chatml_tokenised")
 
 
 train_args = TrainingArguments(
-    output_dir="mistral-KD/runs/distill",
+    output_dir="mistral-KD/runs/KD",
     per_device_train_batch_size=2,
     gradient_accumulation_steps=8,
     num_train_epochs=2,
     learning_rate=5e-5,
+    max_length = 1500,
     logging_steps=50,
     save_steps=2000,
     fp16=True,
