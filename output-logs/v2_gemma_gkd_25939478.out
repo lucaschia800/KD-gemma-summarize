@@ -1,0 +1,46 @@
+[2025-05-07 14:53:46,110] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-07 14:54:11,480] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-07 14:54:11,490] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-07 14:54:11,506] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:45<02:17, 45.78s/it]Loading checkpoint shards:  50%|█████     | 2/4 [01:27<01:27, 43.57s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [02:11<00:43, 43.76s/it]Loading checkpoint shards: 100%|██████████| 4/4 [02:43<00:00, 38.96s/it]Loading checkpoint shards: 100%|██████████| 4/4 [02:43<00:00, 40.85s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:56<00:56, 56.64s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:58<00:00, 24.57s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:58<00:00, 29.38s/it]
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py", line 63, in <module>
+[rank0]:     train_args = GKDConfig(
+[rank0]: TypeError: GKDConfig.__init__() got an unexpected keyword argument 'max_prompt_length'
+[rank0]:[W507 14:58:23.987563893 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W0507 14:58:33.541000 89942 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 92072 closing signal SIGTERM
+W0507 14:58:33.547000 89942 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 92075 closing signal SIGTERM
+E0507 14:58:33.752000 89942 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 1 (pid: 92074) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 1196, in launch_command
+    deepspeed_launcher(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 878, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-05-07_14:58:33
+  host      : g3120.hyak.local
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 92074)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+srun: error: g3120: task 0: Exited with exit code 1
