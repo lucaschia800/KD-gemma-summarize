@@ -5,6 +5,7 @@ from huggingface_hub import login
 from datasets import load_dataset, concatenate_datasets, load_from_disk
 from trl import SFTTrainer, GKDTrainer, GKDConfig
 import copy
+from accelerate import Accelerator
 
 
 
@@ -18,7 +19,7 @@ login(token=huggingface_token)
 # instantiate teacher and student models
 teacher_name = "google/gemma-2-9b-it"
 teacher = AutoModelForCausalLM.from_pretrained(
-        teacher_name, torch_dtype=torch.float16, device_map="auto",
+        teacher_name, torch_dtype=torch.float16,
         attn_implementation="flash_attention_2" #according to HF this needs to be done to avoid NaN in logits
 )
 tokenizer = AutoTokenizer.from_pretrained(teacher_name)
@@ -28,13 +29,13 @@ student_name = "google/gemma-2-2b-it"
 
 
 student = AutoModelForCausalLM.from_pretrained(
-        student_name, torch_dtype=torch.float16, device_map="auto",
+        student_name, torch_dtype=torch.float16,
         attn_implementation="flash_attention_2" #according to HF this needs to be done to avoid NaN in logits
     )
 
 for p in teacher.parameters():
     p.requires_grad = False
-teacher = teacher.eval().to('cuda')
+teacher = teacher.eval()
 
 
 #Starting with initialized embedding matrix and output dense layer 
@@ -56,7 +57,10 @@ sci1_train = load_from_disk("mistral-KD/data/sci1_formatted")
 
 train_ds = concatenate_datasets([xsum_train, cnn_train, sci1_train])
 
-
+accelerator = Accelerator()                    # this reads LOCAL_RANK for you
+teacher, student, train_ds = accelerator.prepare(
+    teacher, student, train_ds
+)
 #GKD Config
 #Starting with no lr scheduler 
 
@@ -87,7 +91,8 @@ trainer = GKDTrainer( #default collator set up is good for now
     teacher_model=teacher,
     train_dataset=train_ds,
     args = train_args,
-    processing_class=tokenizer
+    processing_class=tokenizer,
+    accelerator=accelerator,
 )
 
 trainer.train(resume_from_checkpoint=True)  #explicitly setting this to remember
