@@ -50,11 +50,8 @@ teacher = teacher.eval()
 
 #concatenate datasets
 
-xsum_train = load_from_disk("mistral-KD/data/xsum_formatted")
-cnn_train = load_from_disk("mistral-KD/data/cnn_formatted")
-sci1_train = load_from_disk("mistral-KD/data/sci1_formatted")
+train_ds = load_from_disk("mistral-KD/data/chatml_tokenised")
 
-train_ds = concatenate_datasets([xsum_train, cnn_train, sci1_train])
 
 
 #GKD Config
