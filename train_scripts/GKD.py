@@ -51,7 +51,7 @@ teacher = teacher.eval()
 #concatenate datasets
 
 train_ds = load_from_disk("mistral-KD/data/chatml_tokenised")
-
+train_ds = train_ds.remove_columns("messages")
 
 
 #GKD Config
