@@ -5,7 +5,6 @@ from huggingface_hub import login
 from datasets import load_dataset, concatenate_datasets, load_from_disk
 from trl import SFTTrainer, GKDTrainer, GKDConfig
 import copy
-from accelerate import Accelerator
 
 
 
@@ -57,10 +56,7 @@ sci1_train = load_from_disk("mistral-KD/data/sci1_formatted")
 
 train_ds = concatenate_datasets([xsum_train, cnn_train, sci1_train])
 
-accelerator = Accelerator()                    # this reads LOCAL_RANK for you
-teacher, student, train_ds = accelerator.prepare(
-    teacher, student, train_ds
-)
+
 #GKD Config
 #Starting with no lr scheduler 
 
@@ -91,8 +87,7 @@ trainer = GKDTrainer( #default collator set up is good for now
     teacher_model=teacher,
     train_dataset=train_ds,
     args = train_args,
-    processing_class=tokenizer,
-    accelerator=accelerator,
+    processing_class=tokenizer
 )
 
 trainer.train(resume_from_checkpoint=True)  #explicitly setting this to remember
