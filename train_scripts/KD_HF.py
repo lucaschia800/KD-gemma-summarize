@@ -78,7 +78,6 @@ train_args = TrainingArguments(
     gradient_accumulation_steps=8,
     num_train_epochs=2,
     learning_rate=5e-5,
-    max_length = 1500,
     logging_steps=50,
     save_steps=2000,
     fp16=True,
