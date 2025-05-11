@@ -28,6 +28,7 @@ class KDTrainer(Trainer):
         if attention_mask is not None:
             attention_mask = attention_mask.to(model.device)
 
+        self.teacher = self.teacher.to(model.device)
         with torch.no_grad():
             teacher_outputs = self.teacher(
                 input_ids=input_ids, attention_mask=attention_mask
@@ -51,7 +52,7 @@ class KDTrainer(Trainer):
 
 teacher_name = "google/gemma-2-9b-it"
 teacher = AutoModelForCausalLM.from_pretrained(
-        teacher_name, torch_dtype=torch.float16, device_map="auto",
+        teacher_name, torch_dtype=torch.float16,
         attn_implementation="flash_attention_2" #according to HF this needs to be done to avoid NaN in logits
     )
 
@@ -62,7 +63,7 @@ student_name = "google/gemma-2-2b-it"
 
 
 student = AutoModelForCausalLM.from_pretrained(
-        student_name, torch_dtype=torch.float16, device_map="auto",
+        student_name, torch_dtype=torch.float16,    
         attn_implementation="flash_attention_2"
     )
 
@@ -91,7 +92,7 @@ trainer = KDTrainer(
     args = train_args,
     teacher_model=teacher,
     model=student,
-    processing_class=tokenizer,
+    tokenizer=tokenizer,
     train_dataset = train_ds,
     temperature = 1.5 #starting with > than 1 as we want an emphasis on the model to match overall distribution not just peaks
 )
