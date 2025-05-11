@@ -63,9 +63,9 @@ def build_example(example):
 # -------------------------------------------------------------------------
 #  Load raw datasets, concatenate, and preprocess                        --
 # -------------------------------------------------------------------------
-xsum = load_from_disk("mistral-KD/data/xsum_formatted")
-cnn  = load_from_disk("mistral-KD/data/cnn_formatted")
-sci1 = load_from_disk("mistral-KD/data/sci1_formatted")
+xsum = load_from_disk("/gscratch/stf/lbc800/mistral-KD/data/xsum_formatted")
+cnn  = load_from_disk("/gscratch/stf/lbc800/mistral-KD/data/cnn_formatted")
+sci1 = load_from_disk("/gscratch/stf/lbc800/mistral-KD/data/sci1_formatted")
 
 raw_ds = concatenate_datasets([xsum, cnn, sci1])
 
@@ -81,5 +81,5 @@ proc_ds = raw_ds.map(
 print(proc_ds[0])
 print(tokenizer.decode(proc_ds[0]["input_ids"]))
 
-proc_ds.save_to_disk("mistral-KD/data/chatml_tokenised")
+proc_ds.save_to_disk("/gscratch/stf/lbc800/mistral-KD/data/chatml_tokenised")
 print(" Saved to mistral-KD/data/chatml_tokenised")
