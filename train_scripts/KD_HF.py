@@ -5,6 +5,8 @@ from datasets import load_dataset, concatenate_datasets, load_from_disk
 from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
 from huggingface_hub import login
 import os
+from transformers import DataCollatorForSeq2Seq  
+
 
 
 huggingface_token = os.environ.get('HUGGINGFACE_HUB_TOKEN')
@@ -88,10 +90,17 @@ train_args = TrainingArguments(
 
 )
 
+collator = DataCollatorForSeq2Seq(
+    tokenizer,
+    padding=True,
+    max_length=1500,
+)
+
 trainer = KDTrainer(
     args = train_args,
     teacher_model=teacher,
     model=student,
+    data_collator=collator,
     processing_class=tokenizer,
     train_dataset = train_ds,
     temperature = 1.5 #starting with > than 1 as we want an emphasis on the model to match overall distribution not just peaks

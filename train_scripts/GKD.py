@@ -50,7 +50,6 @@ teacher = teacher.eval()
 
 
 train_ds = load_from_disk("mistral-KD/data/chatml_tokenised")
-train_ds = train_ds.remove_columns("_messages")
 
 
 #GKD Config
@@ -72,8 +71,8 @@ train_args = GKDConfig(
     lmbda = 0.5, #default 0.5
     beta = 0.5, #default 0.5
     seq_kd=False, #Want to use ground truth labels for now
-    dataloader_num_workers=8
-
+    dataloader_num_workers=8,
+    dataset_kwargs={"skip_prepare_dataset": True} 
 )
 
 
