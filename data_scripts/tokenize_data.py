@@ -8,7 +8,7 @@ teacher_name = "google/gemma-2-9b-it"
 
 tokenizer = AutoTokenizer.from_pretrained(teacher_name)
 
-MAX_LEN = 2048
+MAX_LEN = 1500
 IGNORE_IDX = -100
 
 def build_example(example):

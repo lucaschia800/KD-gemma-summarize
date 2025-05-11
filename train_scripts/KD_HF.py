@@ -92,7 +92,7 @@ trainer = KDTrainer(
     args = train_args,
     teacher_model=teacher,
     model=student,
-    tokenizer=tokenizer,
+    processing_class=tokenizer,
     train_dataset = train_ds,
     temperature = 1.5 #starting with > than 1 as we want an emphasis on the model to match overall distribution not just peaks
 )
