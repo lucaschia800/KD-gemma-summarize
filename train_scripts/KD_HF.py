@@ -87,7 +87,8 @@ train_args = TrainingArguments(
     fp16=True,
     deepspeed="/gscratch/stf/lbc800/mistral-KD/deepspeedconfig.json",
     report_to="none",
-    warmup_ratio = 0.1
+    warmup_ratio = 0.1,
+    gradient_checkpointing=True
 
 )
 

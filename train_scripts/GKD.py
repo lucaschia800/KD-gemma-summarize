@@ -87,3 +87,4 @@ trainer = GKDTrainer( #default collator set up is good for now
 )
 
 trainer.train()  #explicitly setting this to remember
+trainer.generation_config.use_cache = True
