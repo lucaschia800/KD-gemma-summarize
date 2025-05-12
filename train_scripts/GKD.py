@@ -85,4 +85,4 @@ trainer = GKDTrainer( #default collator set up is good for now
     processing_class=tokenizer
 )
 
-trainer.train(resume_from_checkpoint=True)  #explicitly setting this to remember
+trainer.train()  #explicitly setting this to remember

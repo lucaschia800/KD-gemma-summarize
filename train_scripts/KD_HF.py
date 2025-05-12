@@ -23,7 +23,7 @@ class KDTrainer(Trainer):
         self.temperature = temperature
         self.alpha = alpha  # Weight for the soft loss
 
-    def compute_loss(self, model, inputs, return_outputs=False):
+    def compute_loss(self, model, inputs, return_outputs=False, **ignored):
         labels = inputs.get("labels").to(model.device)
         input_ids = inputs.get("input_ids").to(model.device)
         attention_mask = inputs.get("attention_mask", None)
@@ -86,7 +86,7 @@ train_args = TrainingArguments(
     fp16=True,
     deepspeed="mistral-KD/deepspeedconfig.json",
     report_to="none",
-    warmup_ratio = 0.1,
+    warmup_ratio = 0.1
 
 )
 
