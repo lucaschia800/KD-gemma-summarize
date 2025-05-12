@@ -18,8 +18,9 @@ login(token=huggingface_token)
 class KDTrainer(Trainer):
     def __init__(self, teacher_model, temperature=1.0, alpha=0.5, **kwargs):
         super().__init__(**kwargs)
-        self.teacher = teacher_model
-        self.teacher.eval()
+        _teacher = teacher_model
+        _teacher.eval()
+        self.teacher = self.accelerator.prepare_model(_teacher, evaluation_mode=True)
         self.temperature = temperature
         self.alpha = alpha  # Weight for the soft loss
 
@@ -76,7 +77,7 @@ train_ds = load_from_disk("mistral-KD/data/chatml_tokenised")
 
 
 train_args = TrainingArguments(
-    output_dir="mistral-KD/runs/KD",
+    output_dir="/gscratch/stf/lbc800/mistral-KD/runs/KD",
     per_device_train_batch_size=2,
     gradient_accumulation_steps=8,
     num_train_epochs=2,
@@ -84,7 +85,7 @@ train_args = TrainingArguments(
     logging_steps=50,
     save_steps=2000,
     fp16=True,
-    deepspeed="mistral-KD/deepspeedconfig.json",
+    deepspeed="/gscratch/stf/lbc800/mistral-KD/deepspeedconfig.json",
     report_to="none",
     warmup_ratio = 0.1
 
