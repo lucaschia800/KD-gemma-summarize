@@ -5,6 +5,8 @@ from huggingface_hub import login
 from datasets import load_dataset, concatenate_datasets, load_from_disk
 from trl import SFTTrainer, GKDTrainer, GKDConfig
 import copy
+import torch._dynamo
+torch._dynamo.disable() 
 
 
 
