@@ -95,7 +95,7 @@ train_args = TrainingArguments(
 collator = DataCollatorForSeq2Seq(
     tokenizer,
     padding=True,
-    max_length=1500,
+    max_length=1300,
 )
 
 trainer = KDTrainer(
