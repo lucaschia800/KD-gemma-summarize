@@ -1,5 +1,4 @@
 compute_environment: LOCAL_MACHINE
-torchdynamo: "none"
 debug: true
 deepspeed_config:
   deepspeed_config_file: /gscratch/stf/lbc800/mistral-KD/deepspeedconfig.json
