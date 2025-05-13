@@ -86,5 +86,7 @@ trainer = GKDTrainer( #default collator set up is good for now
     processing_class=tokenizer
 )
 
-trainer.train()  #explicitly setting this to remember
 trainer.generation_config.use_cache = True
+
+
+trainer.train()  #explicitly setting this to remember
