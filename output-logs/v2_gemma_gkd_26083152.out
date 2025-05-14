@@ -1,0 +1,68 @@
+[2025-05-14 01:14:25,224] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-14 01:14:31,973] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-14 01:14:31,982] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-14 01:14:31,986] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:10<00:31, 10.34s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:09<00:29,  9.89s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:10<00:31, 10.34s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:23<00:24, 12.28s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:24<00:24, 12.31s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:23<00:24, 12.12s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:37<00:12, 12.88s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:37<00:12, 12.98s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:37<00:13, 13.01s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:47<00:00, 11.81s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:47<00:00, 11.95s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:47<00:00, 11.76s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:47<00:00, 11.85s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:47<00:00, 11.82s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:47<00:00, 11.96s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:18<00:18, 18.19s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:18<00:18, 18.41s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:18<00:18, 18.53s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:19<00:00,  8.30s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:19<00:00,  9.83s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:19<00:00,  8.30s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:19<00:00,  9.81s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:19<00:00,  8.21s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:19<00:00,  9.71s/it]
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py", line 59, in <module>
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py", line 59, in <module>
+    train_args = GKDConfig(
+TypeError: GKDConfig.__init__() got an unexpected keyword argument 'padding'
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py", line 59, in <module>
+    train_args = GKDConfig(    
+train_args = GKDConfig(
+TypeError: GKDConfig.__init__() got an unexpected keyword argument 'padding'
+TypeError: GKDConfig.__init__() got an unexpected keyword argument 'padding'
+E0514 01:15:48.298000 98404 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 98512) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 1196, in launch_command
+    deepspeed_launcher(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 878, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2025-05-14_01:15:48
+  host      : g3114.hyak.local
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 98513)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2025-05-14_01:15:48
+  host      : g3114.hyak.local
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 98514)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-05-14_01:15:48
+  host      : g3114.hyak.local
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 98512)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+srun: error: g3114: task 0: Exited with exit code 1

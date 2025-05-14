@@ -1,0 +1,90 @@
+[2025-05-10 18:32:12,825] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:21<01:03, 21.02s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:44<00:44, 22.32s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [01:11<00:24, 24.63s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:29<00:00, 21.98s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:29<00:00, 22.38s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:30<00:30, 30.36s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:31<00:00, 13.37s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:31<00:00, 15.92s/it]
+[2025-05-10 18:34:34,715] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+/usr/bin/ld: cannot find -laio: No such file or directory
+collect2: error: ld returned 1 exit status
+/usr/bin/ld: cannot find -laio: No such file or directory
+collect2: error: ld returned 1 exit status
+/usr/bin/ld: cannot find -laio: No such file or directory
+collect2: error: ld returned 1 exit status
+/usr/bin/ld: cannot find -laio: No such file or directory
+collect2: error: ld returned 1 exit status
+[2025-05-10 18:34:35,919] [INFO] [comm.py:669:init_distributed] cdb=None
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/gscratch/stf/lbc800/mistral-KD/train_scripts/KD_HF.py", line 99, in <module>
+[rank0]:     trainer.train()
+[rank0]:   File "/transformers/src/transformers/trainer.py", line 2239, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/transformers/src/transformers/trainer.py", line 2368, in _inner_training_loop
+[rank0]:     model, self.optimizer = self.accelerator.prepare(self.model, self.optimizer)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/accelerate/accelerator.py", line 1440, in prepare
+[rank0]:     result = self._prepare_deepspeed(*args)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/accelerate/accelerator.py", line 2033, in _prepare_deepspeed
+[rank0]:     engine, optimizer, _, lr_scheduler = ds_initialize(**kwargs)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/deepspeed/__init__.py", line 193, in initialize
+[rank0]:     engine = DeepSpeedEngine(args=args,
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/deepspeed/runtime/engine.py", line 278, in __init__
+[rank0]:     self._configure_distributed_model(model)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/deepspeed/runtime/engine.py", line 1307, in _configure_distributed_model
+[rank0]:     self._broadcast_model()
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/deepspeed/runtime/engine.py", line 1225, in _broadcast_model
+[rank0]:     dist.broadcast(p.data, groups._get_broadcast_src_rank(), group=self.seq_data_parallel_group)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/deepspeed/comm/comm.py", line 117, in log_wrapper
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/deepspeed/comm/comm.py", line 224, in broadcast
+[rank0]:     return cdb.broadcast(tensor=tensor, src=src, group=group, async_op=async_op)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/deepspeed/comm/torch.py", line 206, in broadcast
+[rank0]:     return torch.distributed.broadcast(tensor=tensor, src=src, group=group, async_op=async_op)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py", line 81, in wrapper
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py", line 2726, in broadcast
+[rank0]:     work = group.broadcast([tensor], opts)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/torch/_compile.py", line 32, in inner
+[rank0]:     return disable_fn(*args, **kwargs)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/torch/_dynamo/eval_frame.py", line 745, in _fn
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/torch/distributed/tensor/_api.py", line 346, in __torch_dispatch__
+[rank0]:     return DTensor._op_dispatcher.dispatch(
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/torch/distributed/tensor/_dispatch.py", line 167, in dispatch
+[rank0]:     op_info = self.unwrap_to_op_info(op_call, args, kwargs)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/torch/distributed/tensor/_dispatch.py", line 400, in unwrap_to_op_info
+[rank0]:     assert mesh is not None, f"found no DeviceMesh from dtensor args for {op_call}!"
+[rank0]: AssertionError: found no DeviceMesh from dtensor args for c10d.broadcast_.default!
+[rank0]:[W510 18:34:39.729343422 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W0510 18:34:46.196000 51717 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 52549 closing signal SIGTERM
+W0510 18:34:46.197000 51717 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 52550 closing signal SIGTERM
+E0510 18:34:46.312000 51717 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 2 (pid: 52551) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 1196, in launch_command
+    deepspeed_launcher(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 878, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/gscratch/stf/lbc800/mistral-KD/train_scripts/KD_HF.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-05-10_18:34:46
+  host      : g3114.hyak.local
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 52551)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+srun: error: g3114: task 0: Exited with exit code 1

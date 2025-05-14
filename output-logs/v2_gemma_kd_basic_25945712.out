@@ -1,0 +1,14 @@
+[2025-05-08 02:20:45,972] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Traceback (most recent call last):
+  File "/usr/local/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 1196, in launch_command
+    deepspeed_launcher(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 843, in deepspeed_launcher
+    cmd, current_env = prepare_deepspeed_cmd_env(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/utils/launch.py", line 405, in prepare_deepspeed_cmd_env
+    raise ConnectionError(
+ConnectionError: Tried to launch distributed communication on port `29500`, but another process is utilizing it. Please specify a different port (such as using the `--main_process_port` flag or specifying a different `main_process_port` in your config file) and rerun your script. To automatically use the next open port (on a single node), you can set this to `0`.
+srun: error: g3109: task 0: Exited with exit code 1

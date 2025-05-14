@@ -1,0 +1,267 @@
+[2025-05-13 17:28:37,576] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-13 17:28:58,547] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-13 17:28:58,551] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-13 17:28:58,553] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:53<02:41, 53.72s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:53<02:41, 53.72s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:53<02:41, 53.72s/it]Loading checkpoint shards:  50%|█████     | 2/4 [02:13<02:17, 68.86s/it]Loading checkpoint shards:  50%|█████     | 2/4 [02:13<02:17, 68.86s/it]Loading checkpoint shards:  50%|█████     | 2/4 [02:13<02:17, 68.89s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [03:02<01:00, 60.15s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [03:02<01:00, 60.16s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [03:02<01:00, 60.16s/it]Loading checkpoint shards: 100%|██████████| 4/4 [03:22<00:00, 44.28s/it]Loading checkpoint shards: 100%|██████████| 4/4 [03:22<00:00, 44.28s/it]Loading checkpoint shards: 100%|██████████| 4/4 [03:22<00:00, 50.73s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [03:22<00:00, 50.73s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [03:22<00:00, 44.28s/it]Loading checkpoint shards: 100%|██████████| 4/4 [03:22<00:00, 50.73s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:32<00:32, 32.30s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:32<00:32, 32.30s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:32<00:32, 32.30s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 14.36s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 17.05s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 14.37s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 17.06s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 14.37s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:34<00:00, 17.06s/it]
+[2025-05-13 17:33:05,435] [INFO] [comm.py:669:init_distributed] cdb=None
+[2025-05-13 17:33:05,435] [INFO] [comm.py:669:init_distributed] cdb=None
+[2025-05-13 17:33:05,436] [INFO] [comm.py:700:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2025-05-13 17:33:05,435] [INFO] [comm.py:669:init_distributed] cdb=None
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+[2025-05-13 17:33:05,973] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed info: version=0.16.7, git-hash=unknown, git-branch=unknown
+[2025-05-13 17:33:05,973] [INFO] [config.py:735:__init__] Config mesh_device None world_size = 3
+[2025-05-13 17:33:06,002] [INFO] [config.py:735:__init__] Config mesh_device None world_size = 3
+[2025-05-13 17:33:06,009] [INFO] [config.py:735:__init__] Config mesh_device None world_size = 3
+[2025-05-13 17:33:11,468] [INFO] [logging.py:107:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2025-05-13 17:33:11,471] [INFO] [logging.py:107:log_dist] [Rank 0] Creating ZeRO Offload
+[2025-05-13 17:33:11,475] [INFO] [config.py:735:__init__] Config mesh_device None world_size = 3
+[2025-05-13 17:33:11,476] [INFO] [config.py:735:__init__] Config mesh_device None world_size = 3
+[2025-05-13 17:33:11,809] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [begin]
+[2025-05-13 17:33:11,810] [INFO] [utils.py:782:see_memory_usage] MA 17.21 GB         Max_MA 17.21 GB         CA 17.21 GB         Max_CA 17 GB 
+[2025-05-13 17:33:11,810] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 115.63 GB, percent = 7.6%
+[2025-05-13 17:33:11,817] [INFO] [config.py:735:__init__] Config mesh_device None world_size = 3
+Parameter Offload: Total persistent parameters: 605696 in 169 params
+[2025-05-13 17:33:12,747] [INFO] [utils.py:781:see_memory_usage] DeepSpeedZeRoOffload initialize [end]
+[2025-05-13 17:33:12,749] [INFO] [utils.py:782:see_memory_usage] MA 5.74 GB         Max_MA 17.78 GB         CA 17.79 GB         Max_CA 18 GB 
+[2025-05-13 17:33:12,749] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 115.83 GB, percent = 7.7%
+[2025-05-13 17:33:12,751] [INFO] [config.py:1003:print] DeepSpeedEngine configuration:
+[2025-05-13 17:33:12,751] [INFO] [config.py:1007:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2025-05-13 17:33:12,751] [INFO] [config.py:1007:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'intra_op_parallelism': 1, 'single_submit': False, 'overlap_events': True, 'use_gds': False}
+[2025-05-13 17:33:12,751] [INFO] [config.py:1007:print]   amp_enabled .................. False
+[2025-05-13 17:33:12,751] [INFO] [config.py:1007:print]   amp_params ................... False
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   bfloat16_enabled ............. False
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   bfloat16_immediate_grad_update  True
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   checkpoint_parallel_write_pipeline  False
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   checkpoint_tag_validation_enabled  True
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   checkpoint_tag_validation_fail  False
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x14fc880c50f0>
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   communication_data_type ...... None
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   compile_config ............... deepcompile=False free_activation=False offload_activation=False offload_opt_states=False double_buffer=True symmetric_memory=False debug_log=False offload_parameters=False sync_before_reduce=False sync_after_reduce=False sync_before_allgather=False sync_after_allgather=False
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   curriculum_enabled_legacy .... False
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   curriculum_params_legacy ..... False
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'pin_memory': False, 'curriculum_learning': {'enabled': False}, 'dynamic_batching': {'enabled': False, 'lr_scaling_method': 'linear', 'min_batch_size': 1, 'max_batch_size': None, 'sequence_picking_order': 'dataloader', 'verbose': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   data_efficiency_enabled ...... False
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   dataloader_drop_last ......... False
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   disable_allgather ............ False
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   dump_state ................... False
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   dynamic_loss_scale_args ...... None
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   eigenvalue_enabled ........... False
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   eigenvalue_gas_boundary_resolution  1
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   eigenvalue_layer_num ......... 0
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   eigenvalue_max_iter .......... 100
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   eigenvalue_stability ......... 1e-06
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   eigenvalue_tol ............... 0.01
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   eigenvalue_verbose ........... False
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   elasticity_enabled ........... False
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   fp16_auto_cast ............... False
+[2025-05-13 17:33:12,752] [INFO] [config.py:1007:print]   fp16_enabled ................. True
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   fp16_master_weights_and_gradients  False
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   global_rank .................. 0
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   grad_accum_dtype ............. None
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   gradient_accumulation_steps .. 8
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   gradient_clipping ............ 0.0
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   gradient_predivide_factor .... 1.0
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   graph_harvesting ............. False
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   initial_dynamic_scale ........ 65536
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   load_universal_checkpoint .... False
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   loss_scale ................... 0
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   memory_breakdown ............. False
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   mics_hierarchial_params_gather  False
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   mics_shard_size .............. -1
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') comet=CometConfig(enabled=False, samples_log_interval=100, project=None, workspace=None, api_key=None, experiment_name=None, experiment_key=None, online=None, mode=None) wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName')
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   optimizer_legacy_fusion ...... False
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   optimizer_name ............... None
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   optimizer_params ............. None
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   pld_enabled .................. False
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   pld_params ................... False
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   prescale_gradients ........... False
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   scheduler_name ............... None
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   scheduler_params ............. None
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   seq_parallel_communication_data_type  torch.float32
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   sparse_attention ............. None
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   sparse_gradients_enabled ..... False
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   steps_per_print .............. inf
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   tensor_parallel_config ....... dtype=torch.float16 autotp_size=0 tp_overlap_comm=False tensor_parallel=TPConfig(tp_size=1, tp_grain_size=1, mpu=None, tp_group=None) injection_policy_tuple=None keep_module_on_host=False replace_with_kernel_inject=False
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   timers_config ................ enabled=True synchronized=True
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   train_batch_size ............. 48
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   train_micro_batch_size_per_gpu  2
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   use_data_before_expert_parallel_  False
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   use_node_local_storage ....... False
+[2025-05-13 17:33:12,753] [INFO] [config.py:1007:print]   wall_clock_breakdown ......... False
+[2025-05-13 17:33:12,754] [INFO] [config.py:1007:print]   weight_quantization_config ... None
+[2025-05-13 17:33:12,754] [INFO] [config.py:1007:print]   world_size ................... 3
+[2025-05-13 17:33:12,754] [INFO] [config.py:1007:print]   zero_allow_untested_optimizer  True
+[2025-05-13 17:33:12,754] [INFO] [config.py:1007:print]   zero_config .................. stage=3 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=None sub_group_size=1000000000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50000000 param_persistence_threshold=100000 model_persistence_threshold=9223372036854775807 max_live_parameters=1000000000 max_reuse_distance=1000000000 gather_16bit_weights_on_model_save=False module_granularity_threshold=0 use_all_reduce_for_fetch_params=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False zeropp_loco_param=None mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True log_trace_cache_warnings=False
+[2025-05-13 17:33:12,754] [INFO] [config.py:1007:print]   zero_enabled ................. True
+[2025-05-13 17:33:12,754] [INFO] [config.py:1007:print]   zero_force_ds_cpu_optimizer .. True
+[2025-05-13 17:33:12,754] [INFO] [config.py:1007:print]   zero_optimization_stage ...... 3
+[2025-05-13 17:33:12,754] [INFO] [config.py:993:print_user_config]   json = {
+    "train_batch_size": 48, 
+    "train_micro_batch_size_per_gpu": 2, 
+    "steps_per_print": inf, 
+    "gradient_accumulation_steps": 8, 
+    "fp16": {
+        "enabled": true
+    }, 
+    "zero_optimization": {
+        "stage": 3, 
+        "allgather_partitions": true, 
+        "allgather_bucket_size": 5.000000e+08, 
+        "reduce_scatter": true, 
+        "reduce_bucket_size": 5.000000e+08, 
+        "overlap_comm": true, 
+        "contiguous_gradients": true
+    }, 
+    "zero_allow_untested_optimizer": true, 
+    "communication_timeout": 1.200000e+03, 
+    "bf16": {
+        "enabled": false
+    }, 
+    "zero_optimization.reduce_bucket_size": 1.284506e+07, 
+    "zero_optimization.stage3_param_persistence_threshold": 3.584000e+04, 
+    "zero_optimization.stage3_prefetch_bucket_size": 1.156055e+07
+}
+Parameter Offload: Total persistent parameters: 241920 in 105 params
+  0%|          | 0/28924 [00:00<?, ?it/s]/usr/local/lib/python3.10/dist-packages/torch/utils/checkpoint.py:87: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/torch/utils/checkpoint.py:87: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/torch/utils/checkpoint.py:87: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+  0%|          | 1/28924 [02:41<1293:47:23, 161.04s/it][rank1]: Traceback (most recent call last):
+[rank1]:   File "/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py", line 95, in <module>
+[rank1]:     trainer.train()  #explicitly setting this to remember
+[rank1]:   File "/transformers/src/transformers/trainer.py", line 2239, in train
+[rank1]:     return inner_training_loop(
+[rank1]:   File "/transformers/src/transformers/trainer.py", line 2554, in _inner_training_loop
+[rank1]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/trl/trainer/gkd_trainer.py", line 304, in training_step
+[rank1]:     new_input_ids, new_attention_mask, new_labels = self.generate_on_policy_outputs(
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/trl/trainer/gkd_trainer.py", line 264, in generate_on_policy_outputs
+[rank1]:     generated_outputs = model.generate(
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank1]:     return func(*args, **kwargs)
+[rank1]:   File "/transformers/src/transformers/generation/utils.py", line 2490, in generate
+[rank1]:     result = self._sample(
+[rank1]:   File "/transformers/src/transformers/generation/utils.py", line 3453, in _sample
+[rank1]:     outputs = model_forward(**model_inputs, return_dict=True)
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1845, in _call_impl
+[rank1]:     return inner()
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1793, in inner
+[rank1]:     result = forward_call(*args, **kwargs)
+[rank1]:   File "/transformers/src/transformers/utils/generic.py", line 969, in wrapper
+[rank1]:     output = func(self, *args, **kwargs)
+[rank1]:   File "/transformers/src/transformers/models/gemma2/modeling_gemma2.py", line 856, in forward
+[rank1]:     outputs: BaseModelOutputWithPast = self.model(
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/transformers/src/transformers/utils/generic.py", line 969, in wrapper
+[rank1]:     output = func(self, *args, **kwargs)
+[rank1]:   File "/transformers/src/transformers/utils/deprecation.py", line 172, in wrapped_func
+[rank1]:     return func(*args, **kwargs)
+[rank1]:   File "/transformers/src/transformers/models/gemma2/modeling_gemma2.py", line 603, in forward
+[rank1]:     causal_mask = self._update_causal_mask(
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank1]:     return func(*args, **kwargs)
+[rank1]:   File "/transformers/src/transformers/models/gemma2/modeling_gemma2.py", line 697, in _update_causal_mask
+[rank1]:     causal_mask = self._prepare_4d_causal_attention_mask_with_cache_position(
+[rank1]:   File "/transformers/src/transformers/models/gemma2/modeling_gemma2.py", line 748, in _prepare_4d_causal_attention_mask_with_cache_position
+[rank1]:     causal_mask *= torch.arange(target_length, device=cache_position.device) > cache_position.reshape(-1, 1)
+[rank1]: RuntimeError: The size of tensor a (526) must match the size of tensor b (527) at non-singleton dimension 0
+W0513 17:37:03.962000 17544 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 18937 closing signal SIGTERM
+W0513 17:37:03.963000 17544 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 18939 closing signal SIGTERM
+E0513 17:37:04.739000 17544 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 1 (pid: 18938) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 1196, in launch_command
+    deepspeed_launcher(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 878, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-05-13_17:37:03
+  host      : g3123.hyak.local
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 18938)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+srun: error: g3123: task 0: Exited with exit code 1

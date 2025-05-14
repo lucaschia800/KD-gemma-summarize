@@ -1,0 +1,86 @@
+[2025-05-13 17:46:20,331] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:51<02:35, 51.77s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:51<02:35, 51.80s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:51<02:35, 51.80s/it]Loading checkpoint shards:  50%|█████     | 2/4 [02:00<02:03, 61.87s/it]Loading checkpoint shards:  50%|█████     | 2/4 [02:00<02:03, 61.87s/it]Loading checkpoint shards:  50%|█████     | 2/4 [02:00<02:03, 61.87s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [03:06<01:03, 63.59s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [03:06<01:03, 63.59s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [03:06<01:03, 63.60s/it]Loading checkpoint shards: 100%|██████████| 4/4 [04:02<00:00, 60.81s/it]Loading checkpoint shards: 100%|██████████| 4/4 [04:02<00:00, 60.72s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [04:02<00:00, 60.82s/it]Loading checkpoint shards: 100%|██████████| 4/4 [04:02<00:00, 60.73s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [04:02<00:00, 60.83s/it]Loading checkpoint shards: 100%|██████████| 4/4 [04:02<00:00, 60.73s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [01:13<01:13, 73.76s/it]Loading checkpoint shards:  50%|█████     | 1/2 [01:13<01:13, 73.79s/it]Loading checkpoint shards:  50%|█████     | 1/2 [01:13<01:13, 73.82s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:17<00:00, 32.49s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:17<00:00, 38.69s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [01:17<00:00, 32.49s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:17<00:00, 38.68s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [01:17<00:00, 32.49s/it]Loading checkpoint shards: 100%|██████████| 2/2 [01:17<00:00, 38.69s/it]
+[2025-05-13 17:52:01,815] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-13 17:52:01,816] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-13 17:52:01,825] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-13 17:52:06,454] [INFO] [comm.py:669:init_distributed] cdb=None
+[2025-05-13 17:52:06,454] [INFO] [comm.py:700:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2025-05-13 17:52:06,454] [INFO] [comm.py:669:init_distributed] cdb=None
+[2025-05-13 17:52:06,454] [INFO] [comm.py:669:init_distributed] cdb=None
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Parameter Offload: Total persistent parameters: 241920 in 105 params
+  0%|          | 0/28924 [00:00<?, ?it/s]/transformers/src/transformers/tokenization_utils_base.py:2804: UserWarning: `max_length` is ignored when `padding`=`True` and there is no truncation strategy. To pad to max length, use `padding='max_length'`.
+  warnings.warn(
+/transformers/src/transformers/tokenization_utils_base.py:2804: UserWarning: `max_length` is ignored when `padding`=`True` and there is no truncation strategy. To pad to max length, use `padding='max_length'`.
+  warnings.warn(
+/transformers/src/transformers/tokenization_utils_base.py:2804: UserWarning: `max_length` is ignored when `padding`=`True` and there is no truncation strategy. To pad to max length, use `padding='max_length'`.
+  warnings.warn(
+Student model device: cuda:2
+Teacher model device: cuda:2
+Student model device: cuda:1
+Teacher model device: cuda:1
+Student model device: cuda:0
+Teacher model device: cuda:0
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/gscratch/stf/lbc800/mistral-KD/train_scripts/KD_HF.py", line 114, in <module>
+[rank1]:     trainer.train()
+[rank1]:   File "/transformers/src/transformers/trainer.py", line 2239, in train
+[rank1]:     return inner_training_loop(
+[rank1]:   File "/transformers/src/transformers/trainer.py", line 2554, in _inner_training_loop
+[rank1]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank1]:   File "/transformers/src/transformers/trainer.py", line 3743, in training_step
+[rank1]:     loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+[rank1]:   File "/gscratch/stf/lbc800/mistral-KD/train_scripts/KD_HF.py", line 49, in compute_loss
+[rank1]:     kd_loss = nn.KLDivLoss(reduction="batchmean")(soft_student, soft_teacher) * (T**2)  #reverse KL
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/loss.py", line 543, in forward
+[rank1]:     return F.kl_div(
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/functional.py", line 3396, in kl_div
+[rank1]:     reduced = torch.kl_div(input, target, reduction_enum, log_target=log_target)
+[rank1]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.95 GiB. GPU 1 has a total capacity of 44.42 GiB of which 1.92 GiB is free. Including non-PyTorch memory, this process has 42.49 GiB memory in use. Of the allocated memory 39.98 GiB is allocated by PyTorch, and 1.76 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+W0513 17:52:27.673000 71468 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 73652 closing signal SIGTERM
+W0513 17:52:27.675000 71468 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 73654 closing signal SIGTERM
+E0513 17:52:28.091000 71468 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 1 (pid: 73653) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 1196, in launch_command
+    deepspeed_launcher(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 878, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/gscratch/stf/lbc800/mistral-KD/train_scripts/KD_HF.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-05-13_17:52:27
+  host      : g3103.hyak.local
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 73653)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+srun: error: g3103: task 0: Exited with exit code 1

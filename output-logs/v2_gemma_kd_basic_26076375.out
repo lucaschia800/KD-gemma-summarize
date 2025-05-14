@@ -1,0 +1,50 @@
+[2025-05-13 17:31:07,879] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/train_scripts/KD_HF.py", line 15, in <module>
+    login(token=huggingface_token)
+  File "/usr/local/lib/python3.10/dist-packages/huggingface_hub/utils/_deprecation.py", line 101, in inner_f
+    return f(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/huggingface_hub/utils/_deprecation.py", line 31, in inner_f
+    return f(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/huggingface_hub/_login.py", line 126, in login
+    _login(token, add_to_git_credential=add_to_git_credential)
+  File "/usr/local/lib/python3.10/dist-packages/huggingface_hub/_login.py", line 412, in _login
+    _set_active_token(token_name=token_name, add_to_git_credential=add_to_git_credential)
+  File "/usr/local/lib/python3.10/dist-packages/huggingface_hub/_login.py", line 457, in _set_active_token
+    raise ValueError(f"Token {token_name} not found in {constants.HF_STORED_TOKENS_PATH}")
+ValueError: Token hyak-token not found in /gscratch/stf/lbc800/huggingface/stored_tokens
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]W0513 17:31:22.525000 46274 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 47974 closing signal SIGTERM
+W0513 17:31:22.525000 46274 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 47975 closing signal SIGTERM
+E0513 17:31:23.942000 46274 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 2 (pid: 47976) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 1196, in launch_command
+    deepspeed_launcher(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 878, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/gscratch/stf/lbc800/mistral-KD/train_scripts/KD_HF.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-05-13_17:31:22
+  host      : g3103.hyak.local
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 47976)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+srun: error: g3103: task 0: Exited with exit code 1
