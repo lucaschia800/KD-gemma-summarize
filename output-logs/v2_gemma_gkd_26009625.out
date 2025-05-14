@@ -1,0 +1,78 @@
+[2025-05-11 07:15:46,610] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-11 07:15:54,230] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-11 07:15:54,243] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-11 07:15:54,243] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:17<00:51, 17.00s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:17<00:51, 17.00s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:17<00:51, 17.00s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:43<00:44, 22.45s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:43<00:44, 22.45s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:43<00:44, 22.45s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [01:05<00:22, 22.28s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [01:05<00:22, 22.28s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [01:05<00:22, 22.30s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:21<00:00, 19.69s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:21<00:00, 20.26s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [01:21<00:00, 19.70s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:21<00:00, 20.27s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [01:21<00:00, 19.69s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:21<00:00, 20.27s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:26<00:26, 26.50s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:26<00:26, 26.50s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:26<00:26, 26.54s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:28<00:00, 11.91s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:28<00:00, 14.10s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:28<00:00, 11.92s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:28<00:00, 14.10s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:28<00:00, 11.91s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:28<00:00, 14.10s/it]
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py", line 53, in <module>
+    train_ds = train_ds.remove_columns("_messages")
+  File "/usr/local/lib/python3.10/dist-packages/datasets/arrow_dataset.py", line 557, in wrapper
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py", line 53, in <module>
+    train_ds = train_ds.remove_columns("_messages")
+  File "/usr/local/lib/python3.10/dist-packages/datasets/arrow_dataset.py", line 557, in wrapper
+Traceback (most recent call last):
+  File "/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py", line 53, in <module>
+    train_ds = train_ds.remove_columns("_messages")
+  File "/usr/local/lib/python3.10/dist-packages/datasets/arrow_dataset.py", line 557, in wrapper
+        out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+
+  File "/usr/local/lib/python3.10/dist-packages/datasets/fingerprint.py", line 442, in wrapper
+  File "/usr/local/lib/python3.10/dist-packages/datasets/fingerprint.py", line 442, in wrapper
+    out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/datasets/fingerprint.py", line 442, in wrapper
+            out = func(dataset, *args, **kwargs)out = func(dataset, *args, **kwargs)out = func(dataset, *args, **kwargs)
+
+
+  File "/usr/local/lib/python3.10/dist-packages/datasets/arrow_dataset.py", line 2161, in remove_columns
+  File "/usr/local/lib/python3.10/dist-packages/datasets/arrow_dataset.py", line 2161, in remove_columns
+  File "/usr/local/lib/python3.10/dist-packages/datasets/arrow_dataset.py", line 2161, in remove_columns
+    raise ValueError(
+ValueError: Column name ['_messages'] not in the dataset. Current columns in the dataset: ['messages', 'input_ids', 'attention_mask', 'labels', 'prompt', 'prompt_input_ids', 'prompt_attention_mask']
+    raise ValueError(
+    ValueErrorraise ValueError(
+: Column name ['_messages'] not in the dataset. Current columns in the dataset: ['messages', 'input_ids', 'attention_mask', 'labels', 'prompt', 'prompt_input_ids', 'prompt_attention_mask']
+ValueError: Column name ['_messages'] not in the dataset. Current columns in the dataset: ['messages', 'input_ids', 'attention_mask', 'labels', 'prompt', 'prompt_input_ids', 'prompt_attention_mask']
+W0511 07:17:57.619000 27964 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 29675 closing signal SIGTERM
+W0511 07:17:57.619000 27964 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 29677 closing signal SIGTERM
+E0511 07:17:57.667000 27964 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 1 (pid: 29676) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 1196, in launch_command
+    deepspeed_launcher(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 878, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-05-11_07:17:57
+  host      : g3114.hyak.local
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 29676)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+srun: error: g3114: task 0: Exited with exit code 1

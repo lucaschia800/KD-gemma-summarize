@@ -1,0 +1,123 @@
+[2025-05-12 14:22:42,955] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:16<00:48, 16.24s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:16<00:48, 16.31s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:16<00:48, 16.32s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:38<00:40, 20.02s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:38<00:40, 20.05s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:38<00:40, 20.03s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [01:00<00:20, 20.72s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [01:00<00:20, 20.74s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [01:00<00:20, 20.73s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:16<00:00, 18.77s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:16<00:00, 18.77s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:16<00:00, 19.07s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:16<00:00, 19.07s/it]
+
+Loading checkpoint shards: 100%|██████████| 4/4 [01:16<00:00, 18.79s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:16<00:00, 19.08s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:26<00:26, 26.31s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:26<00:26, 26.28s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:26<00:26, 26.21s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:27<00:00, 11.82s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:27<00:00, 13.99s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:27<00:00, 11.77s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:27<00:00, 13.94s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:28<00:00, 11.85s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:28<00:00, 14.02s/it]
+[2025-05-12 14:24:50,329] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-12 14:24:50,340] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-12 14:24:50,341] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-12 14:24:52,187] [INFO] [comm.py:669:init_distributed] cdb=None
+[2025-05-12 14:24:52,187] [INFO] [comm.py:700:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2025-05-12 14:24:52,347] [INFO] [comm.py:669:init_distributed] cdb=None
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+[2025-05-12 14:24:52,877] [INFO] [comm.py:669:init_distributed] cdb=None
+Parameter Offload: Total persistent parameters: 241920 in 105 params
+  0%|          | 0/28924 [00:00<?, ?it/s]/transformers/src/transformers/tokenization_utils_base.py:2804: UserWarning: `max_length` is ignored when `padding`=`True` and there is no truncation strategy. To pad to max length, use `padding='max_length'`.
+  warnings.warn(
+/transformers/src/transformers/tokenization_utils_base.py:2804: UserWarning: `max_length` is ignored when `padding`=`True` and there is no truncation strategy. To pad to max length, use `padding='max_length'`.
+  warnings.warn(
+/transformers/src/transformers/tokenization_utils_base.py:2804: UserWarning: `max_length` is ignored when `padding`=`True` and there is no truncation strategy. To pad to max length, use `padding='max_length'`.
+  warnings.warn(
+It is strongly recommended to train Gemma2 models with the `eager` attention implementation instead of `flash_attention_2`. Use `eager` with `AutoModelForCausalLM.from_pretrained('<path-to-checkpoint>', attn_implementation='eager')`.
+It is strongly recommended to train Gemma2 models with the `eager` attention implementation instead of `flash_attention_2`. Use `eager` with `AutoModelForCausalLM.from_pretrained('<path-to-checkpoint>', attn_implementation='eager')`.
+It is strongly recommended to train Gemma2 models with the `eager` attention implementation instead of `flash_attention_2`. Use `eager` with `AutoModelForCausalLM.from_pretrained('<path-to-checkpoint>', attn_implementation='eager')`.
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/gscratch/stf/lbc800/mistral-KD/train_scripts/KD_HF.py", line 110, in <module>
+[rank2]:     trainer.train()
+[rank2]:   File "/transformers/src/transformers/trainer.py", line 2239, in train
+[rank2]:     return inner_training_loop(
+[rank2]:   File "/transformers/src/transformers/trainer.py", line 2554, in _inner_training_loop
+[rank2]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank2]:   File "/transformers/src/transformers/trainer.py", line 3743, in training_step
+[rank2]:     loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+[rank2]:   File "/gscratch/stf/lbc800/mistral-KD/train_scripts/KD_HF.py", line 40, in compute_loss
+[rank2]:     student_outputs = model(input_ids=input_ids, attention_mask=attention_mask).logits
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/deepspeed/utils/nvtx.py", line 20, in wrapped_fn
+[rank2]:     ret_val = func(*args, **kwargs)
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/deepspeed/runtime/engine.py", line 2054, in forward
+[rank2]:     loss = self.module(*inputs, **kwargs)
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1845, in _call_impl
+[rank2]:     return inner()
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1793, in inner
+[rank2]:     result = forward_call(*args, **kwargs)
+[rank2]:   File "/transformers/src/transformers/utils/generic.py", line 969, in wrapper
+[rank2]:     output = func(self, *args, **kwargs)
+[rank2]:   File "/transformers/src/transformers/models/gemma2/modeling_gemma2.py", line 856, in forward
+[rank2]:     outputs: BaseModelOutputWithPast = self.model(
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1845, in _call_impl
+[rank2]:     return inner()
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1793, in inner
+[rank2]:     result = forward_call(*args, **kwargs)
+[rank2]:   File "/transformers/src/transformers/utils/generic.py", line 969, in wrapper
+[rank2]:     output = func(self, *args, **kwargs)
+[rank2]:   File "/transformers/src/transformers/utils/deprecation.py", line 172, in wrapped_func
+[rank2]:     return func(*args, **kwargs)
+[rank2]:   File "/transformers/src/transformers/models/gemma2/modeling_gemma2.py", line 640, in forward
+[rank2]:     layer_outputs = decoder_layer(
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1845, in _call_impl
+[rank2]:     return inner()
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1793, in inner
+[rank2]:     result = forward_call(*args, **kwargs)
+[rank2]:   File "/transformers/src/transformers/utils/deprecation.py", line 172, in wrapped_func
+[rank2]:     return func(*args, **kwargs)
+[rank2]:   File "/transformers/src/transformers/models/gemma2/modeling_gemma2.py", line 350, in forward
+[rank2]:     hidden_states = self.mlp(hidden_states)
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1845, in _call_impl
+[rank2]:     return inner()
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1793, in inner
+[rank2]:     result = forward_call(*args, **kwargs)
+[rank2]:   File "/transformers/src/transformers/models/gemma2/modeling_gemma2.py", line 99, in forward
+[rank2]:     down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+[rank2]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 72.00 MiB. GPU 2 has a total capacity of 44.42 GiB of which 16.12 MiB is free. Including non-PyTorch memory, this process has 44.39 GiB memory in use. Of the allocated memory 43.39 GiB is allocated by PyTorch, and 297.34 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+W0512 14:25:14.387000 54650 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 54841 closing signal SIGTERM
+W0512 14:25:14.389000 54650 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 54842 closing signal SIGTERM
+E0512 14:25:15.056000 54650 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 2 (pid: 54843) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 1196, in launch_command
+    deepspeed_launcher(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 878, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/gscratch/stf/lbc800/mistral-KD/train_scripts/KD_HF.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-05-12_14:25:14
+  host      : g3123.hyak.local
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 54843)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+srun: error: g3123: task 0: Exited with exit code 1

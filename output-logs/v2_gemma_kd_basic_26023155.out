@@ -1,0 +1,177 @@
+[2025-05-11 18:32:22,779] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:12<00:36, 12.01s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:12<00:36, 12.02s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:12<00:36, 12.02s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:27<00:28, 14.17s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:27<00:28, 14.17s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:27<00:28, 14.19s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:43<00:14, 14.98s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:43<00:14, 14.98s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:43<00:14, 14.99s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:55<00:00, 13.80s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:55<00:00, 13.91s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:55<00:00, 13.80s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:55<00:00, 13.91s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:55<00:00, 13.81s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:55<00:00, 13.92s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:18<00:18, 18.91s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:18<00:18, 18.91s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:18<00:18, 18.95s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:20<00:00,  8.71s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:20<00:00, 10.24s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:20<00:00,  8.71s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:20<00:00, 10.24s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:20<00:00,  8.72s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:20<00:00, 10.25s/it]
+[2025-05-11 18:33:51,037] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-11 18:33:51,040] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-11 18:33:51,042] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-11 18:33:52,180] [INFO] [comm.py:669:init_distributed] cdb=None
+[2025-05-11 18:33:52,322] [INFO] [comm.py:669:init_distributed] cdb=None
+[2025-05-11 18:33:52,322] [INFO] [comm.py:700:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2025-05-11 18:33:52,422] [INFO] [comm.py:669:init_distributed] cdb=None
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/transformers/src/transformers/tokenization_utils_base.py", line 780, in convert_to_tensors
+[rank1]:     tensor = as_tensor(value)
+[rank1]:   File "/transformers/src/transformers/tokenization_utils_base.py", line 742, in as_tensor
+[rank1]:     return torch.tensor(value)
+[rank1]: ValueError: expected sequence of length 506 at dim 1 (got 2048)
+
+[rank1]: The above exception was the direct cause of the following exception:
+
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/gscratch/stf/lbc800/mistral-KD/train_scripts/KD_HF.py", line 100, in <module>
+[rank1]:     trainer.train()
+[rank1]:   File "/transformers/src/transformers/trainer.py", line 2239, in train
+[rank1]:     return inner_training_loop(
+[rank1]:   File "/transformers/src/transformers/trainer.py", line 2508, in _inner_training_loop
+[rank1]:     batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches, args.device)
+[rank1]:   File "/transformers/src/transformers/trainer.py", line 5260, in get_batch_samples
+[rank1]:     batch_samples.append(next(epoch_iterator))
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/accelerate/data_loader.py", line 566, in __iter__
+[rank1]:     current_batch = next(dataloader_iter)
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 708, in __next__
+[rank1]:     data = self._next_data()
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 764, in _next_data
+[rank1]:     data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+[rank1]:     return self.collate_fn(data)
+[rank1]:   File "/transformers/src/transformers/data/data_collator.py", line 272, in __call__
+[rank1]:     batch = pad_without_fast_tokenizer_warning(
+[rank1]:   File "/transformers/src/transformers/data/data_collator.py", line 67, in pad_without_fast_tokenizer_warning
+[rank1]:     padded = tokenizer.pad(*pad_args, **pad_kwargs)
+[rank1]:   File "/transformers/src/transformers/tokenization_utils_base.py", line 3493, in pad
+[rank1]:     return BatchEncoding(batch_outputs, tensor_type=return_tensors)
+[rank1]:   File "/transformers/src/transformers/tokenization_utils_base.py", line 244, in __init__
+[rank1]:     self.convert_to_tensors(tensor_type=tensor_type, prepend_batch_axis=prepend_batch_axis)
+[rank1]:   File "/transformers/src/transformers/tokenization_utils_base.py", line 796, in convert_to_tensors
+[rank1]:     raise ValueError(
+[rank1]: ValueError: Unable to create tensor, you should probably activate truncation and/or padding with 'padding=True' 'truncation=True' to have batched tensors with the same length. Perhaps your features (`labels` in this case) have excessive nesting (inputs type `list` where type `int` is expected).
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/transformers/src/transformers/tokenization_utils_base.py", line 780, in convert_to_tensors
+[rank2]:     tensor = as_tensor(value)
+[rank2]:   File "/transformers/src/transformers/tokenization_utils_base.py", line 742, in as_tensor
+[rank2]:     return torch.tensor(value)
+[rank2]: ValueError: expected sequence of length 387 at dim 1 (got 1894)
+
+[rank2]: The above exception was the direct cause of the following exception:
+
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/gscratch/stf/lbc800/mistral-KD/train_scripts/KD_HF.py", line 100, in <module>
+[rank2]:     trainer.train()
+[rank2]:   File "/transformers/src/transformers/trainer.py", line 2239, in train
+[rank2]:     return inner_training_loop(
+[rank2]:   File "/transformers/src/transformers/trainer.py", line 2508, in _inner_training_loop
+[rank2]:     batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches, args.device)
+[rank2]:   File "/transformers/src/transformers/trainer.py", line 5260, in get_batch_samples
+[rank2]:     batch_samples.append(next(epoch_iterator))
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/accelerate/data_loader.py", line 577, in __iter__
+[rank2]:     next_batch = next(dataloader_iter)
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 708, in __next__
+[rank2]:     data = self._next_data()
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 764, in _next_data
+[rank2]:     data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+[rank2]:     return self.collate_fn(data)
+[rank2]:   File "/transformers/src/transformers/data/data_collator.py", line 272, in __call__
+[rank2]:     batch = pad_without_fast_tokenizer_warning(
+[rank2]:   File "/transformers/src/transformers/data/data_collator.py", line 67, in pad_without_fast_tokenizer_warning
+[rank2]:     padded = tokenizer.pad(*pad_args, **pad_kwargs)
+[rank2]:   File "/transformers/src/transformers/tokenization_utils_base.py", line 3493, in pad
+[rank2]:     return BatchEncoding(batch_outputs, tensor_type=return_tensors)
+[rank2]:   File "/transformers/src/transformers/tokenization_utils_base.py", line 244, in __init__
+[rank2]:     self.convert_to_tensors(tensor_type=tensor_type, prepend_batch_axis=prepend_batch_axis)
+[rank2]:   File "/transformers/src/transformers/tokenization_utils_base.py", line 796, in convert_to_tensors
+[rank2]:     raise ValueError(
+[rank2]: ValueError: Unable to create tensor, you should probably activate truncation and/or padding with 'padding=True' 'truncation=True' to have batched tensors with the same length. Perhaps your features (`labels` in this case) have excessive nesting (inputs type `list` where type `int` is expected).
+  0%|          | 0/28924 [00:00<?, ?it/s][rank0]: Traceback (most recent call last):
+[rank0]:   File "/transformers/src/transformers/tokenization_utils_base.py", line 780, in convert_to_tensors
+[rank0]:     tensor = as_tensor(value)
+[rank0]:   File "/transformers/src/transformers/tokenization_utils_base.py", line 742, in as_tensor
+[rank0]:     return torch.tensor(value)
+[rank0]: ValueError: expected sequence of length 637 at dim 1 (got 427)
+
+[rank0]: The above exception was the direct cause of the following exception:
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/gscratch/stf/lbc800/mistral-KD/train_scripts/KD_HF.py", line 100, in <module>
+[rank0]:     trainer.train()
+[rank0]:   File "/transformers/src/transformers/trainer.py", line 2239, in train
+[rank0]:     return inner_training_loop(
+[rank0]:   File "/transformers/src/transformers/trainer.py", line 2508, in _inner_training_loop
+[rank0]:     batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches, args.device)
+[rank0]:   File "/transformers/src/transformers/trainer.py", line 5260, in get_batch_samples
+[rank0]:     batch_samples.append(next(epoch_iterator))
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/accelerate/data_loader.py", line 566, in __iter__
+[rank0]:     current_batch = next(dataloader_iter)
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 708, in __next__
+[rank0]:     data = self._next_data()
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/dataloader.py", line 764, in _next_data
+[rank0]:     data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+[rank0]:     return self.collate_fn(data)
+[rank0]:   File "/transformers/src/transformers/data/data_collator.py", line 272, in __call__
+[rank0]:     batch = pad_without_fast_tokenizer_warning(
+[rank0]:   File "/transformers/src/transformers/data/data_collator.py", line 67, in pad_without_fast_tokenizer_warning
+[rank0]:     padded = tokenizer.pad(*pad_args, **pad_kwargs)
+[rank0]:   File "/transformers/src/transformers/tokenization_utils_base.py", line 3493, in pad
+[rank0]:     return BatchEncoding(batch_outputs, tensor_type=return_tensors)
+[rank0]:   File "/transformers/src/transformers/tokenization_utils_base.py", line 244, in __init__
+[rank0]:     self.convert_to_tensors(tensor_type=tensor_type, prepend_batch_axis=prepend_batch_axis)
+[rank0]:   File "/transformers/src/transformers/tokenization_utils_base.py", line 796, in convert_to_tensors
+[rank0]:     raise ValueError(
+[rank0]: ValueError: Unable to create tensor, you should probably activate truncation and/or padding with 'padding=True' 'truncation=True' to have batched tensors with the same length. Perhaps your features (`labels` in this case) have excessive nesting (inputs type `list` where type `int` is expected).
+[rank0]:[W511 18:34:03.148781562 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+  0%|          | 0/28924 [00:01<?, ?it/s]
+E0511 18:34:05.902000 35184 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 35339) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 1196, in launch_command
+    deepspeed_launcher(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 878, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/gscratch/stf/lbc800/mistral-KD/train_scripts/KD_HF.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2025-05-11_18:34:05
+  host      : g3102.hyak.local
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 35340)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2025-05-11_18:34:05
+  host      : g3102.hyak.local
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 35341)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-05-11_18:34:05
+  host      : g3102.hyak.local
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 35339)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+srun: error: g3102: task 0: Exited with exit code 1

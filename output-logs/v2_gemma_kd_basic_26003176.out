@@ -1,0 +1,43 @@
+[2025-05-10 14:02:06,108] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:18<00:54, 18.09s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:50<00:53, 26.73s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [01:24<00:29, 29.70s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:51<00:00, 28.86s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:51<00:00, 27.92s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:36<00:36, 36.45s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:38<00:00, 16.37s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:38<00:00, 19.39s/it]
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/gscratch/stf/lbc800/mistral-KD/train_scripts/KD_HF.py", line 75, in <module>
+[rank0]:     train_args = TrainingArguments(
+[rank0]: TypeError: TrainingArguments.__init__() got an unexpected keyword argument 'max_length'
+[rank0]:[W510 14:05:12.596027746 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W0510 14:05:23.559000 51389 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 52422 closing signal SIGTERM
+W0510 14:05:23.560000 51389 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 52423 closing signal SIGTERM
+E0510 14:05:23.674000 51389 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 52421) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 1196, in launch_command
+    deepspeed_launcher(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 878, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/gscratch/stf/lbc800/mistral-KD/train_scripts/KD_HF.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-05-10_14:05:23
+  host      : g3123.hyak.local
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 52421)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+srun: error: g3123: task 0: Exited with exit code 1

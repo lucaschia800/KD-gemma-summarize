@@ -1,0 +1,72 @@
+[2025-05-08 22:31:07,535] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-08 22:31:19,616] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-08 22:31:19,617] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-05-08 22:31:19,617] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:35<01:47, 35.86s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:35<01:47, 36.00s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:36<01:48, 36.01s/it]Loading checkpoint shards:  50%|█████     | 2/4 [01:36<01:41, 50.58s/it]Loading checkpoint shards:  50%|█████     | 2/4 [01:36<01:41, 50.67s/it]Loading checkpoint shards:  50%|█████     | 2/4 [01:36<01:41, 50.67s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [02:29<00:51, 51.38s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [02:29<00:51, 51.40s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [02:29<00:51, 51.41s/it]Loading checkpoint shards: 100%|██████████| 4/4 [03:10<00:00, 47.64s/it]Loading checkpoint shards: 100%|██████████| 4/4 [03:11<00:00, 47.65s/it]Loading checkpoint shards: 100%|██████████| 4/4 [03:11<00:00, 47.65s/it]Loading checkpoint shards: 100%|██████████| 4/4 [03:10<00:00, 47.74s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [03:11<00:00, 47.78s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [03:11<00:00, 47.78s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:56<00:56, 56.55s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:56<00:56, 56.55s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:56<00:56, 56.56s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:59<00:00, 24.76s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:59<00:00, 29.53s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:59<00:00, 24.76s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:59<00:00, 29.53s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:59<00:00, 24.77s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:59<00:00, 29.53s/it]
+[2025-05-08 22:35:47,771] [INFO] [comm.py:669:init_distributed] cdb=None
+[2025-05-08 22:35:47,771] [INFO] [comm.py:669:init_distributed] cdb=None
+[2025-05-08 22:35:47,771] [INFO] [comm.py:700:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2025-05-08 22:35:47,772] [INFO] [comm.py:669:init_distributed] cdb=None
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py", line 61, in <module>
+[rank0]:     teacher, student, train_ds = accelerator.prepare(
+[rank0]:   File "/usr/local/lib/python3.10/dist-packages/accelerate/accelerator.py", line 1374, in prepare
+[rank0]:     raise AssertionError(
+[rank0]: AssertionError: You can't use same `Accelerator()` instance with multiple models when using DeepSpeed
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py", line 61, in <module>
+[rank2]:     teacher, student, train_ds = accelerator.prepare(
+[rank2]:   File "/usr/local/lib/python3.10/dist-packages/accelerate/accelerator.py", line 1374, in prepare
+[rank2]:     raise AssertionError(
+[rank2]: AssertionError: You can't use same `Accelerator()` instance with multiple models when using DeepSpeed
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py", line 61, in <module>
+[rank1]:     teacher, student, train_ds = accelerator.prepare(
+[rank1]:   File "/usr/local/lib/python3.10/dist-packages/accelerate/accelerator.py", line 1374, in prepare
+[rank1]:     raise AssertionError(
+[rank1]: AssertionError: You can't use same `Accelerator()` instance with multiple models when using DeepSpeed
+[rank0]:[W508 22:35:48.595238427 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W0508 22:35:55.907000 36791 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 39795 closing signal SIGTERM
+W0508 22:35:55.908000 36791 torch/distributed/elastic/multiprocessing/api.py:897] Sending process 39796 closing signal SIGTERM
+E0508 22:35:56.113000 36791 torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 39794) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/accelerate", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 1196, in launch_command
+    deepspeed_launcher(args)
+  File "/usr/local/lib/python3.10/dist-packages/accelerate/commands/launch.py", line 878, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 909, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/gscratch/stf/lbc800/mistral-KD/train_scripts/GKD.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-05-08_22:35:55
+  host      : g3121.hyak.local
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 39794)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+srun: error: g3121: task 0: Exited with exit code 1
