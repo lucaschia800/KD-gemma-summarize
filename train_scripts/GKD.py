@@ -6,7 +6,7 @@ from datasets import load_dataset, concatenate_datasets, load_from_disk
 from trl import SFTTrainer, GKDTrainer, GKDConfig
 import copy
 import torch._dynamo
-torch._dynamo.config.suppress_errors = True
+torch._dynamo.config.disable = True
 
 
 
@@ -39,6 +39,9 @@ for p in teacher.parameters():
     p.requires_grad = False
 teacher = teacher.eval()
 
+# Add this after loading the models
+teacher.config.use_cache = False
+student.config.use_cache = False
 
 #Starting with initialized embedding matrix and output dense layer 
 #not worrying about hidden states for now
@@ -77,6 +80,7 @@ train_args = GKDConfig(
     dataloader_num_workers=8,
     dataset_kwargs={"skip_prepare_dataset": True},
     gradient_checkpointing=True,
+    use_cache=False,
 )
 
 
