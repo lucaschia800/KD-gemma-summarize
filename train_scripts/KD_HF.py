@@ -99,6 +99,7 @@ collator = DataCollatorForSeq2Seq(
     tokenizer,
     padding=True,
     max_length=1300,
+    truncatiuon=True,
 )
 
 trainer = KDTrainer(
