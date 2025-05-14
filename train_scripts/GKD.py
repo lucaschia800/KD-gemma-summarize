@@ -66,7 +66,6 @@ train_args = GKDConfig(
     save_steps=2000,
     fp16=True,
     max_length = 1200,
-    padding=True,
     deepspeed="mistral-KD/deepspeedconfig.json",
     report_to="none",
     warmup_ratio = 0.1,
