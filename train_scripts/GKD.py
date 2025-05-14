@@ -5,8 +5,7 @@ from huggingface_hub import login
 from datasets import load_dataset, concatenate_datasets, load_from_disk
 from trl import SFTTrainer, GKDTrainer, GKDConfig
 import copy
-import torch._dynamo
-torch._dynamo.disable() 
+
 
 
 
@@ -88,7 +87,9 @@ trainer = GKDTrainer( #default collator set up is good for now
     processing_class=tokenizer
 )
 
-# trainer.generation_config.use_cache =  False #testing without for now
-
+if hasattr(trainer.model.config, "use_cache"):
+    trainer.model.config.use_cache = False
+if hasattr(trainer.teacher_model.config, "use_cache"):
+    trainer.teacher_model.config.use_cache = False
 
 trainer.train()  #explicitly setting this to remember
