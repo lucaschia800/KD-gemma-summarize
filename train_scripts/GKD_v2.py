@@ -40,9 +40,9 @@ for p in teacher.parameters():
     p.requires_grad = False
 teacher = teacher.eval()
 
-# Add this after loading the models
-teacher.config.use_cache = False
-student.config.use_cache = False
+# # Add this after loading the models
+# teacher.config.use_cache = False
+# student.config.use_cache = False
 
 
 
@@ -71,8 +71,7 @@ train_args = GKDConfig(
     seq_kd=False, #Want to use ground truth labels for now
     dataloader_num_workers=8,
     dataset_kwargs={"skip_prepare_dataset": True},
-    gradient_checkpointing=True,
-    use_cache=False,
+    #gradient_checkpointing=True,
 )
 
 
