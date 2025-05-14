@@ -99,4 +99,7 @@ trainer = GKDTrainer( #default collator set up is good for now
 # if hasattr(trainer.teacher_model.config, "use_cache"):
 #     trainer.teacher_model.config.use_cache = False
 
+print(f"Student model device map: {[p.device for p in trainer.model.parameters()][:5]}")
+print(f"Teacher model device map: {[p.device for p in trainer.teacher_model.parameters()][:5]}")
+
 trainer.train()  #explicitly setting this to remember
