@@ -58,14 +58,16 @@ train_ds = load_from_disk("mistral-KD/data/chatml_tokenised")
 
 train_args = GKDConfig(
     output_dir="mistral-KD/runs/distill",
-    per_device_train_batch_size=2,
+    per_device_train_batch_size=1,
     gradient_accumulation_steps=8,
     num_train_epochs=2,
     learning_rate=5e-5,
     logging_steps=50,
     save_steps=2000,
     fp16=True,
-    max_length = 1500,
+    max_length = 1200,
+    truncation=True,
+    padding=True,
     deepspeed="mistral-KD/deepspeedconfig.json",
     report_to="none",
     warmup_ratio = 0.1,
@@ -87,9 +89,9 @@ trainer = GKDTrainer( #default collator set up is good for now
     processing_class=tokenizer
 )
 
-if hasattr(trainer.model.config, "use_cache"):
-    trainer.model.config.use_cache = False
-if hasattr(trainer.teacher_model.config, "use_cache"):
-    trainer.teacher_model.config.use_cache = False
+# if hasattr(trainer.model.config, "use_cache"):
+#     trainer.model.config.use_cache = False
+# if hasattr(trainer.teacher_model.config, "use_cache"):
+#     trainer.teacher_model.config.use_cache = False
 
 trainer.train()  #explicitly setting this to remember

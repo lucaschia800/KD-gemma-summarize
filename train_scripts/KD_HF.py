@@ -27,6 +27,8 @@ class KDTrainer(Trainer):
     def compute_loss(self, model, inputs, return_outputs=False, **ignored):
         print(f"Student model device: {model.device}")  
         print(f"Teacher model device: {self.teacher.device}")  
+        print(f"Allocated: {torch.cuda.memory_allocated()/1e9:.2f} GB")
+
         labels = inputs.get("labels").to(model.device)
         input_ids = inputs.get("input_ids").to(model.device)
         attention_mask = inputs.get("attention_mask", None)
@@ -61,6 +63,13 @@ teacher = AutoModelForCausalLM.from_pretrained(
         teacher_name, torch_dtype=torch.float16,
         attn_implementation="eager" #according to HF this needs to be done to avoid NaN in logits
     )
+
+teacher = init_inference(
+    teacher,
+    mp_size=torch.distributed.get_world_size(),  # = num ranks
+    dtype=torch.float16,
+    replace_method="auto"
+)
 
 tokenizer = AutoTokenizer.from_pretrained(teacher_name)
 
@@ -99,7 +108,7 @@ collator = DataCollatorForSeq2Seq(
     tokenizer,
     padding=True,
     max_length=1300,
-    truncatiuon=True,
+    truncation=True,
 )
 
 trainer = KDTrainer(
