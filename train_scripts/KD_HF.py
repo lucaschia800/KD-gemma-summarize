@@ -1,3 +1,6 @@
+import torch._dynamo
+torch._dynamo.config.disable = True
+
 from transformers import Trainer, TrainingArguments
 import torch
 import torch.nn as nn
@@ -71,6 +74,8 @@ teacher = AutoModelForCausalLM.from_pretrained(
 #     replace_method="auto"
 # )
 
+teacher.config.use_cache = False
+
 tokenizer = AutoTokenizer.from_pretrained(teacher_name)
 
 
@@ -81,6 +86,8 @@ student = AutoModelForCausalLM.from_pretrained(
         student_name, torch_dtype=torch.float16,    
         attn_implementation="eager"
     )
+
+student.config.use_cache = False
 
 
 
