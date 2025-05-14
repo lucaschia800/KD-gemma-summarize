@@ -67,14 +67,7 @@ teacher = AutoModelForCausalLM.from_pretrained(
         attn_implementation="eager" #according to HF this needs to be done to avoid NaN in logits
     )
 
-# teacher = init_inference(
-#     teacher,
-#     mp_size=torch.distributed.get_world_size(),  # = num ranks
-#     dtype=torch.float16,
-#     replace_method="auto"
-# )
 
-teacher.config.use_cache = False
 
 tokenizer = AutoTokenizer.from_pretrained(teacher_name)
 
@@ -86,9 +79,6 @@ student = AutoModelForCausalLM.from_pretrained(
         student_name, torch_dtype=torch.float16,    
         attn_implementation="eager"
     )
-
-student.config.use_cache = False
-
 
 
 
