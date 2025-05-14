@@ -44,15 +44,6 @@ teacher = teacher.eval()
 teacher.config.use_cache = False
 student.config.use_cache = False
 
-#Starting with initialized embedding matrix and output dense layer 
-#not worrying about hidden states for now
-# student.get_input_embeddings().load_state_dict(
-#         teacher.get_input_embeddings().state_dict()
-#     )
-
-# student.lm_head.load_state_dict(teacher.lm_head.state_dict())
-
-# print(student)
 
 
 
@@ -81,6 +72,7 @@ train_args = GKDConfig(
     dataloader_num_workers=8,
     dataset_kwargs={"skip_prepare_dataset": True},
     gradient_checkpointing=True,
+    use_cache=False,
 )
 
 
