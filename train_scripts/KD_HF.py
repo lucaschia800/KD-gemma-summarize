@@ -25,17 +25,20 @@ class KDTrainer(Trainer):
         self.alpha = alpha  # Weight for the soft loss
 
     def compute_loss(self, model, inputs, return_outputs=False, **ignored):
+        print(f"Student model device: {model.device}")  
+        print(f"Teacher model device: {self.teacher.device}")  
         labels = inputs.get("labels").to(model.device)
         input_ids = inputs.get("input_ids").to(model.device)
         attention_mask = inputs.get("attention_mask", None)
         if attention_mask is not None:
             attention_mask = attention_mask.to(model.device)
 
-        self.teacher = self.teacher.to(model.device)
         with torch.no_grad():
             teacher_outputs = self.teacher(
                 input_ids=input_ids, attention_mask=attention_mask
             ).logits
+
+        
 
         student_outputs = model(input_ids=input_ids, attention_mask=attention_mask).logits
 
