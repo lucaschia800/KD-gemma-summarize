@@ -76,7 +76,7 @@ train_args = GKDConfig(
     seq_kd=False, #Want to use ground truth labels for now
     dataloader_num_workers=8,
     dataset_kwargs={"skip_prepare_dataset": True},
-    # gradient_checkpointing=True,
+    gradient_checkpointing=True,
 )
 
 
