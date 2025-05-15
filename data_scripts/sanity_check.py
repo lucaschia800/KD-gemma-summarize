@@ -8,7 +8,6 @@ EXISTING_DATASET_PATH = "/gscratch/stf/lbc800/mistral-KD/data/chatml_tokenised" 
 MAX_LEN = 1500
 IGNORE_IDX = -100
 
-# --- 1. Load Tokenizer and Get BOS Info ---
 print(f"Loading tokenizer: {TOKENIZER_NAME}")
 tokenizer = AutoTokenizer.from_pretrained(TOKENIZER_NAME)
 bos_token_id = tokenizer.bos_token_id
@@ -19,7 +18,7 @@ if bos_token_id is None:
     print("CRITICAL WARNING: Tokenizer does not have a bos_token_id. This is highly unexpected for Gemma.")
     exit()
 
-# --- 2. Inspect one sample from your ACTUAL chatml_tokenised dataset ---
+# --- 2. Inspect one sample from  chatml_tokenised dataset ---
 print(f"\n--- Part 1: Inspecting one sample from your existing dataset: {EXISTING_DATASET_PATH} ---")
 try:
     current_processed_dataset = load_from_disk(EXISTING_DATASET_PATH)
@@ -39,7 +38,7 @@ try:
 except Exception as e:
     print(f"  Could not load or inspect current dataset: {e}")
 
-# --- 3. Test your build_example function behavior ---
+# --- 3. Test build_example function behavior ---
 print("\n--- Part 2: Testing your build_example function's behavior ---")
 
 # Your original build_example function (copied from your script)
@@ -65,7 +64,7 @@ def build_example_corrected(example_data):
     return {"input_ids": full_tok["input_ids"]}
 
 # Create a sample raw input (like one from xsum, cnn, etc. before tokenization)
-# This should be in the format your build_example function expects
+# This should be in the format build_example function expects
 raw_sample_messages = {
     "messages": [
         {"role": "user", "content": "What is the weather like in Seattle today?"},
@@ -74,7 +73,7 @@ raw_sample_messages = {
 }
 print(f"Using raw sample messages: {raw_sample_messages['messages']}")
 
-# Test with your original function (add_special_tokens=False)
+# Test with original function (add_special_tokens=False)
 print("\nTesting with ORIGINAL build_example (add_special_tokens=False):")
 original_processed = build_example_original(raw_sample_messages.copy())
 original_input_ids = original_processed["input_ids"]
