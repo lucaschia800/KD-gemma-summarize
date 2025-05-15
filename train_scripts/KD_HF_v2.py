@@ -23,7 +23,7 @@ class KDTrainer(Trainer):
         super().__init__(**kwargs)
         _teacher = teacher_model
         _teacher.eval()
-        self.teacher = self.accelerator.prepare_model(_teacher, evaluation_mode=True)
+        self.teacher = self.accelerator.prepare_model(_teacher)  #no evaluation mode
         self.temperature = temperature
         self.alpha = alpha  # Weight for the soft loss
 
@@ -104,9 +104,7 @@ train_args = TrainingArguments(
 collator = DataCollatorForSeq2Seq(
     tokenizer,
     padding=True,
-    max_length=1300,
-    truncation=True,
-)
+    max_length=1300)
 
 trainer = KDTrainer(
     args = train_args,
