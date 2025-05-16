@@ -48,7 +48,7 @@ train_args = TrainingArguments(
 )
 
 collator = DataCollatorForSeq2Seq(
-    tokenizer = tokenizer
+    tokenizer = tokenizer,
     padding=True,
     max_length=1300)
 
