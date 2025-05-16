@@ -36,9 +36,9 @@ student = AutoModelForCausalLM.from_pretrained(
         attn_implementation="eager" #according to HF this needs to be done to avoid NaN in logits
     )
 
-for p in teacher.parameters():
-    p.requires_grad = False
-teacher = teacher.eval()
+# for p in teacher.parameters():
+#     p.requires_grad = False
+# teacher = teacher.eval()
 
 # # Add this after loading the models
 # teacher.config.use_cache = False
@@ -63,7 +63,7 @@ train_args = GKDConfig(
     save_steps=2000,
     fp16=True,
     max_length = 1200,
-    deepspeed="mistral-KD/deepspeedconfig.json",
+    # deepspeed="mistral-KD/deepspeedconfig.json",
     report_to="none",
     warmup_ratio = 0.1,
     lmbda = 0.5, #default 0.5
