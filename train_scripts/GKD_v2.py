@@ -1,3 +1,5 @@
+import torch._dynamo
+torch._dynamo.config.disable = True
 import os
 import torch
 from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer

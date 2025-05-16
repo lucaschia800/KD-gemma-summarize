@@ -9,6 +9,8 @@ from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
 from huggingface_hub import login
 import os
 from transformers import DataCollatorForSeq2Seq  
+import logging  
+logging.getLogger("deepspeed").setLevel(logging.INFO)
 
 
 
@@ -115,7 +117,6 @@ trainer = KDTrainer(
     train_dataset = train_ds,
     temperature = 1.5 #starting with > than 1 as we want an emphasis on the model to match overall distribution not just peaks
 )
-print(f"Student model device map: {[p.device for p in trainer.model.parameters()][:5]}")
-print(f"Teacher model device map: {[p.device for p in trainer.teacher.parameters()][:5]}")
+
 
 trainer.train()
