@@ -36,7 +36,7 @@ student = AutoModelForCausalLM.from_pretrained(
         attn_implementation="eager" #according to HF this needs to be done to avoid NaN in logits
     )
 
-# for p in teacher.parameters():
+# for p in teacher.parameters(): 
 #     p.requires_grad = False
 # teacher = teacher.eval()
 

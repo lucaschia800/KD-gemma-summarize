@@ -3,6 +3,7 @@
     "train_micro_batch_size_per_gpu": 1,  
     "steps_per_print": 50,
     "gradient_accumulation_steps": 8,     
+    "verbose": true,
     "fp16": {
       "enabled": true                     
     },
