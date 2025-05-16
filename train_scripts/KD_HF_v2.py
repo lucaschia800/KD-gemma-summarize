@@ -87,7 +87,7 @@ train_ds = load_from_disk("mistral-KD/data/chatml_tokenised")
 
 train_args = TrainingArguments(
     output_dir="/gscratch/stf/lbc800/mistral-KD/runs/KD",
-    per_device_train_batch_size=2,
+    per_device_train_batch_size=1,
     gradient_accumulation_steps=8,
     num_train_epochs=2,
     learning_rate=5e-5,
