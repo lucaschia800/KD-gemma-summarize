@@ -5,6 +5,9 @@ from huggingface_hub import login
 from datasets import load_dataset, concatenate_datasets, load_from_disk
 from trl import SFTTrainer, GKDTrainer, GKDConfig
 import copy
+from accelerate import Accelerator
+import logging  
+logging.getLogger("deepspeed").setLevel(logging.INFO)
 
 
 
@@ -74,6 +77,8 @@ trainer = GKDTrainer( #default collator set up is good for now
     args = train_args,
     processing_class=tokenizer
 )
+
+print(f"DeepSpeed config: {accelerator.deepspeed_config}")
 
 
 trainer.train()  #explicitly setting this to remember
