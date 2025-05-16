@@ -1,5 +1,3 @@
-import torch._dynamo
-torch._dynamo.config.disable = True
 import os
 import torch
 from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
@@ -36,13 +34,6 @@ student = AutoModelForCausalLM.from_pretrained(
         attn_implementation="eager" #according to HF this needs to be done to avoid NaN in logits
     )
 
-# for p in teacher.parameters(): 
-#     p.requires_grad = False
-# teacher = teacher.eval()
-
-# # Add this after loading the models
-# teacher.config.use_cache = False
-# student.config.use_cache = False
 
 
 
@@ -84,12 +75,5 @@ trainer = GKDTrainer( #default collator set up is good for now
     processing_class=tokenizer
 )
 
-# if hasattr(trainer.model.config, "use_cache"):
-#     trainer.model.config.use_cache = False
-# if hasattr(trainer.teacher_model.config, "use_cache"):
-#     trainer.teacher_model.config.use_cache = False
-
-print(f"Student model device map: {[p.device for p in trainer.model.parameters()][:5]}")
-print(f"Teacher model device map: {[p.device for p in trainer.teacher_model.parameters()][:5]}")
 
 trainer.train()  #explicitly setting this to remember
