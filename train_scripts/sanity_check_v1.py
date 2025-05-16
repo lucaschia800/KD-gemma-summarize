@@ -20,6 +20,9 @@ login(token=huggingface_token)
 
 student_name = "google/gemma-2-2b-it"
 
+tokenizer = AutoTokenizer.from_pretrained(student_name)
+
+
 
 student = AutoModelForCausalLM.from_pretrained(
         student_name, torch_dtype=torch.float16,    
@@ -45,6 +48,7 @@ train_args = TrainingArguments(
 )
 
 collator = DataCollatorForSeq2Seq(
+    tokenizer = tokenizer
     padding=True,
     max_length=1300)
 
