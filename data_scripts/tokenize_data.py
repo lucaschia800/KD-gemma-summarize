@@ -8,7 +8,7 @@ teacher_name = "google/gemma-2-9b-it"
 
 tokenizer = AutoTokenizer.from_pretrained(teacher_name)
 
-MAX_LEN = 1500
+MAX_LEN = 1000
 IGNORE_IDX = -100
 
 def build_example(example):
@@ -81,5 +81,5 @@ proc_ds = raw_ds.map(
 print(proc_ds[0])
 print(tokenizer.decode(proc_ds[0]["input_ids"]))
 
-proc_ds.save_to_disk("/gscratch/stf/lbc800/mistral-KD/data/chatml_tokenised")
+proc_ds.save_to_disk("/gscratch/stf/lbc800/mistral-KD/data/chatml_tokenised_1000")
 print(" Saved to mistral-KD/data/chatml_tokenised")
