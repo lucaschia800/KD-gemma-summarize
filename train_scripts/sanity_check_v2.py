@@ -50,7 +50,7 @@ train_args = TrainingArguments(
 collator = DataCollatorForSeq2Seq(
     tokenizer = tokenizer,
     padding=True,
-    max_length=1300)
+    max_length=1000)
 
 trainer = Trainer(
     args = train_args,
