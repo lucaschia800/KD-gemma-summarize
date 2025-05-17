@@ -57,7 +57,7 @@ trainer = Trainer(
     model=student,
     data_collator=collator,
     train_dataset = train_ds,
-    temperature = 1.5 #starting with > than 1 as we want an emphasis on the model to match overall distribution not just peaks
+    # temperature = 1.5 #starting with > than 1 as we want an emphasis on the model to match overall distribution not just peaks
 )
 
 

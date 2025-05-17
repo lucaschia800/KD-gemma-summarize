@@ -80,7 +80,7 @@ trainer = GKDTrainer( #default collator set up is good for now
     processing_class=tokenizer
 )
 
-print(f"DeepSpeed config: {trainer.accelerator.deepspeed_config}")
+# print(f"DeepSpeed config: {trainer.accelerator.deepspeed_plugin.deepspeed_config}")
 
 
 trainer.train()  #explicitly setting this to remember
