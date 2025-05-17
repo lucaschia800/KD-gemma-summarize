@@ -44,6 +44,7 @@ train_args = TrainingArguments(
     fp16=True,
     report_to="none",
     warmup_ratio = 0.1,
+    gradient_checkpointing=True,
 
 )
 
