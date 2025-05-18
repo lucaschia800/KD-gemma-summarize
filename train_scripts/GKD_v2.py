@@ -43,7 +43,7 @@ student = AutoModelForCausalLM.from_pretrained(
 
 
 
-train_ds = load_from_disk("mistral-KD/data/chatml_tokenised")
+train_ds = load_from_disk("mistral-KD/data/chatml_tokenised_1000")
 
 
 #GKD Config
@@ -58,7 +58,7 @@ train_args = GKDConfig(
     logging_steps=50,
     save_steps=2000,
     fp16=True,
-    max_length = 1200,
+    max_length = 1000,
     # deepspeed="mistral-KD/deepspeedconfig.json",
     report_to="none",
     warmup_ratio = 0.1,
